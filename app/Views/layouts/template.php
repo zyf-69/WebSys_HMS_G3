@@ -267,35 +267,31 @@
             </a>
             <a href="<?= base_url('admin/scheduling') ?>" class="nav-link">
                 <span class="nav-icon">📅</span>
-                <span class="nav-label">Scheduling</span>
+                <span class="nav-label">Doctor Scheduling</span>
             </a>
             <a href="<?= base_url('admin/appointments') ?>" class="nav-link">
                 <span class="nav-icon">🗓</span>
-                <span class="nav-label">Appointments</span>
+                <span class="nav-label">Patient Scheduling</span>
             </a>
             <a href="#" class="nav-link">
                 <span class="nav-icon">💲</span>
-                <span class="nav-label">Billing &amp; Payment Processing</span>
+                <span class="nav-label">Billing</span>
             </a>
             <a href="#" class="nav-link">
                 <span class="nav-icon">⚗</span>
-                <span class="nav-label">Laboratory &amp; Diagnostic</span>
+                <span class="nav-label">Laboratory</span>
             </a>
             <a href="#" class="nav-link">
                 <span class="nav-icon">💊</span>
-                <span class="nav-label">Pharmacy Management</span>
+                <span class="nav-label">Pharmacy</span>
             </a>
             <a href="#" class="nav-link">
-                <span class="nav-icon">🗄</span>
-                <span class="nav-label">Database</span>
-            </a>
-            <a href="#" class="nav-link">
-                <span class="nav-icon">📊</span>
-                <span class="nav-label">Reports &amp; Analytics</span>
+                <span class="nav-icon">�</span>
+                <span class="nav-label">Hospital Reports</span>
             </a>
             <a href="<?= base_url('admin/user-access') ?>" class="nav-link">
                 <span class="nav-icon">🛡</span>
-                <span class="nav-label">User Access &amp; Security</span>
+                <span class="nav-label">User Management</span>
             </a>
         </div>
         <div class="sidebar-footer">

@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
+
+class UserAccess extends BaseController
+{
+    public function index()
+    {
+        $result = $this->requireLogin();
+        if ($result !== true) {
+            return $result;
+        }
+
+        if (! $this->hasRole('admin')) {
+            return redirect()->to(base_url('dashboard'));
+        }
+
+        $db = db_connect();
+        $roles = $db->table('roles')
+            ->select('id, name, display_name')
+            ->where('is_active', 1)
+            ->orderBy('level', 'DESC')
+            ->get()->getResultArray();
+
+        $data = [
+            'title' => 'User Access & Security | HMS System',
+            'roles' => $roles,
+        ];
+
+        return view('admin/user_access', $data);
+    }
+
+    public function store()
+    {
+        $result = $this->requireLogin();
+        if ($result !== true) {
+            return $result;
+        }
+
+        if (! $this->hasRole('admin')) {
+            return redirect()->to(base_url('dashboard'));
+        }
+
+        $request = $this->request;
+
+        $firstName = trim((string) $request->getPost('first_name'));
+        $lastName  = trim((string) $request->getPost('last_name'));
+        $username  = trim((string) $request->getPost('username'));
+        $email     = trim((string) $request->getPost('email'));
+        $password  = (string) $request->getPost('password');
+        $confirm   = (string) $request->getPost('confirm_password');
+        $roleId    = (int) $request->getPost('role_id');
+
+        if ($password !== $confirm) {
+            $this->session->setFlashdata('error', 'Password and confirmation do not match.');
+            return redirect()->back()->withInput();
+        }
+
+        if ($email === '' || $password === '' || ! $roleId) {
+            $this->session->setFlashdata('error', 'Email, password, and role are required.');
+            return redirect()->back()->withInput();
+        }
+
+        $db = db_connect();
+
+        // Check for existing email
+        $exists = $db->table('users')->where('email', $email)->get()->getRowArray();
+        if ($exists) {
+            $this->session->setFlashdata('error', 'A user with this email already exists.');
+            return redirect()->back()->withInput();
+        }
+
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $userData = [
+            'username'   => $username !== '' ? $username : null,
+            'email'      => $email,
+            'password'   => $passwordHash,
+            'first_name' => $firstName !== '' ? $firstName : null,
+            'last_name'  => $lastName !== '' ? $lastName : null,
+            'role_id'    => $roleId,
+            'status'     => 'active',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $db->table('users')->insert($userData);
+        $userId = $db->insertID();
+
+        // If role is doctor, create doctor profile so it appears in scheduling doctor list
+        if ($roleId === 3) {
+            $fullName = trim(($firstName ?: '') . ' ' . ($lastName ?: ''));
+            if ($fullName === '') {
+                $fullName = $username ?: $email;
+            }
+
+            $doctorData = [
+                'user_id'        => $userId,
+                'full_name'      => $fullName,
+                'specialization' => null,
+                'license_number' => null,
+                'status'         => 'active',
+                'created_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+            ];
+
+            $db->table('doctors')->insert($doctorData);
+        }
+
+        $this->session->setFlashdata('success', 'User account has been created successfully.');
+        return redirect()->to(base_url('admin/user-access'));
+    }
+}

@@ -114,7 +114,14 @@
                 </div>
                 <div class="form-group-inline">
                     <label for="civil_status">Civil Status</label>
-                    <input type="text" id="civil_status" name="civil_status">
+                    <select id="civil_status" name="civil_status">
+                        <option value="">Select</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="widowed">Widowed</option>
+                        <option value="separated">Separated</option>
+                        <option value="divorced">Divorced</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="place_of_birth">Place of Birth</label>
@@ -122,7 +129,17 @@
                 </div>
                 <div class="form-group-inline">
                     <label for="blood_type">Blood Type</label>
-                    <input type="text" id="blood_type" name="blood_type" placeholder="e.g. O+">
+                    <select id="blood_type" name="blood_type">
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -131,20 +148,68 @@
             <div class="patient-section-title">Contact Information</div>
             <div class="patient-form-grid">
                 <div class="form-group-inline">
+                    <label for="region">Region</label>
+                    <select id="region" name="region">
+                        <option value="">Select</option>
+                        <option value="NCR">NCR</option>
+                        <option value="CAR">CAR</option>
+                        <option value="Region I">Region I</option>
+                        <option value="Region II">Region II</option>
+                        <option value="Region III">Region III</option>
+                        <option value="Region IV-A">Region IV-A</option>
+                        <option value="Region IV-B">Region IV-B</option>
+                        <option value="Region V">Region V</option>
+                        <option value="Region VI">Region VI</option>
+                        <option value="Region VII">Region VII</option>
+                        <option value="Region VIII">Region VIII</option>
+                        <option value="Region IX">Region IX</option>
+                        <option value="Region X">Region X</option>
+                        <option value="Region XI">Region XI</option>
+                        <option value="Region XII">Region XII</option>
+                        <option value="CARAGA">CARAGA</option>
+                        <option value="BARMM">BARMM</option>
+                    </select>
+                </div>
+                <div class="form-group-inline">
                     <label for="province">Province</label>
-                    <input type="text" id="province" name="province">
+                    <select id="province" name="province">
+                        <option value="">Select</option>
+                        <option value="Metro Manila">Metro Manila</option>
+                        <option value="Cebu">Cebu</option>
+                        <option value="Davao del Sur">Davao del Sur</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="city_municipality">City / Municipality</label>
-                    <input type="text" id="city_municipality" name="city_municipality">
+                    <select id="city_municipality" name="city_municipality">
+                        <option value="">Select</option>
+                        <option value="Quezon City">Quezon City</option>
+                        <option value="Manila">Manila</option>
+                        <option value="Cebu City">Cebu City</option>
+                        <option value="Davao City">Davao City</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="barangay">Barangay</label>
-                    <input type="text" id="barangay" name="barangay">
+                    <select id="barangay" name="barangay">
+                        <option value="">Select</option>
+                        <option value="Barangay 1">Barangay 1</option>
+                        <option value="Barangay 2">Barangay 2</option>
+                        <option value="Barangay 3">Barangay 3</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="street">Street</label>
-                    <input type="text" id="street" name="street">
+                    <select id="street" name="street">
+                        <option value="">Select</option>
+                        <option value="Main Street">Main Street</option>
+                        <option value="Rizal Avenue">Rizal Avenue</option>
+                        <option value="Mabini Street">Mabini Street</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="phone_number">Telephone Number</label>
@@ -387,6 +452,66 @@
                 setRecordFilter(filter);
             });
         });
+
+        // Cascading Region -> Province -> City / Municipality
+        const regionSelect = document.getElementById('region');
+        const provinceSelect = document.getElementById('province');
+        const citySelect = document.getElementById('city_municipality');
+
+        const regionProvinceMap = {
+            'Region XII': ['South Cotabato', 'Sultan Kudarat', 'Sarangani', 'Cotabato'],
+            'NCR': ['Metro Manila'],
+            'CAR': ['Benguet'],
+            'Region XI': ['Davao del Sur']
+        };
+
+        const provinceCityMap = {
+            'Sarangani': ['Alabel', 'Glan', 'Kiamba', 'Maasim', 'Maitum', 'Malapatan', 'Malungon'],
+            'South Cotabato': ['Koronadal City', 'General Santos City', 'Polomolok', 'Tupi', 'Surallah', 'Norala', 'Banga'],
+            'Sultan Kudarat': ['Isulan', 'Tacurong City', 'Esperanza', 'Lebak'],
+            'Cotabato': ['Kidapawan City', 'Midsayap', 'Kabacan'],
+            'Metro Manila': ['Quezon City', 'Manila', 'Makati City', 'Pasig City'],
+            'Benguet': ['Baguio City'],
+            'Davao del Sur': ['Davao City']
+        };
+
+        function resetSelect(selectEl, placeholder) {
+            if (!selectEl) return;
+            selectEl.innerHTML = '';
+            const opt = document.createElement('option');
+            opt.value = '';
+            opt.textContent = placeholder || 'Select';
+            selectEl.appendChild(opt);
+        }
+
+        function populateSelect(selectEl, items) {
+            if (!selectEl) return;
+            items.forEach(value => {
+                const opt = document.createElement('option');
+                opt.value = value;
+                opt.textContent = value;
+                selectEl.appendChild(opt);
+            });
+        }
+
+        if (regionSelect && provinceSelect && citySelect) {
+            regionSelect.addEventListener('change', function () {
+                const region = this.value;
+                resetSelect(provinceSelect, 'Select');
+                resetSelect(citySelect, 'Select');
+
+                const provinces = regionProvinceMap[region] || [];
+                populateSelect(provinceSelect, provinces);
+            });
+
+            provinceSelect.addEventListener('change', function () {
+                const province = this.value;
+                resetSelect(citySelect, 'Select');
+
+                const cities = provinceCityMap[province] || [];
+                populateSelect(citySelect, cities);
+            });
+        }
 
         // defaults
         setVisitType('inpatient');

@@ -156,6 +156,68 @@
     </form>
 </div>
 
+<?php if (!empty($users)): ?>
+<div class="ua-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <div class="patient-section-title" style="font-size:14px;font-weight:600;">All User Accounts</div>
+    </div>
+    <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+            <thead>
+                <tr style="background:#f9fafb;border-bottom:2px solid #e5e7eb;">
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">ID</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Full Name</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Username</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Email</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Role</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Status</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Created</th>
+                    <th style="text-align:left;padding:10px 12px;font-weight:600;font-size:12px;color:#6b7280;text-transform:uppercase;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                    <tr style="border-bottom:1px solid #e5e7eb;">
+                        <td style="padding:12px;">#<?= esc($user['id']) ?></td>
+                        <td style="padding:12px;">
+                            <strong><?= esc(trim(($user['first_name'] ?? '') . ' ' . ($user['middle_name'] ?? '') . ' ' . ($user['last_name'] ?? ''))) ?></strong>
+                            <?php if (!empty($user['address'])): ?>
+                                <div style="font-size:11px;color:#6b7280;margin-top:2px;"><?= esc($user['address']) ?></div>
+                            <?php endif; ?>
+                        </td>
+                        <td style="padding:12px;"><?= esc($user['username'] ?? '—') ?></td>
+                        <td style="padding:12px;"><?= esc($user['email']) ?></td>
+                        <td style="padding:12px;">
+                            <span style="display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:500;background:#dbeafe;color:#1e40af;">
+                                <?= esc($user['role_display_name'] ?? ucfirst($user['role_name'] ?? 'N/A')) ?>
+                            </span>
+                        </td>
+                        <td style="padding:12px;">
+                            <span style="display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:500;<?= $user['status'] === 'active' ? 'background:#dcfce7;color:#166534;' : 'background:#fee2e2;color:#991b1b;' ?>">
+                                <?= esc(ucfirst($user['status'])) ?>
+                            </span>
+                        </td>
+                        <td style="padding:12px;">
+                            <?php if (!empty($user['created_at'])): ?>
+                                <?= date('M d, Y', strtotime($user['created_at'])) ?>
+                                <div style="font-size:11px;color:#6b7280;margin-top:2px;">
+                                    <?= date('h:i A', strtotime($user['created_at'])) ?>
+                                </div>
+                            <?php else: ?>
+                                <span style="color:#9ca3af;">—</span>
+                            <?php endif; ?>
+                        </td>
+                        <td style="padding:12px;">
+                            <a href="<?= base_url('admin/user-access/edit/' . esc($user['id'])) ?>" style="display:inline-block;padding:4px 12px;border-radius:6px;background:#1d4ed8;color:#ffffff;text-decoration:none;font-size:12px;font-weight:500;">Edit</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php endif; ?>
+
 <script>
     (function() {
         const roleSelect = document.getElementById('role_id');

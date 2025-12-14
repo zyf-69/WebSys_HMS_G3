@@ -115,7 +115,6 @@ $visitType = $p['visit_type'] ?? 'inpatient';
                         <option value="">Select</option>
                         <option value="male" <?= ($p['gender'] ?? '') === 'male' ? 'selected' : '' ?>>Male</option>
                         <option value="female" <?= ($p['gender'] ?? '') === 'female' ? 'selected' : '' ?>>Female</option>
-                        <option value="other" <?= ($p['gender'] ?? '') === 'other' ? 'selected' : '' ?>>Other</option>
                     </select>
                 </div>
                 <div class="form-group-inline">
@@ -271,7 +270,20 @@ $visitType = $p['visit_type'] ?? 'inpatient';
             <div class="patient-form-grid">
                 <div class="form-group-inline">
                     <label for="insurance_provider">Insurance Provider</label>
-                    <input type="text" id="insurance_provider" name="insurance_provider" value="<?= esc($p['insurance_provider'] ?? '') ?>">
+                    <select id="insurance_provider" name="insurance_provider">
+                        <option value="">Select Provider</option>
+                        <option value="PhilHealth" <?= ($p['insurance_provider'] ?? '') === 'PhilHealth' ? 'selected' : '' ?>>PhilHealth (Government)</option>
+                        <option value="Maxicare" <?= ($p['insurance_provider'] ?? '') === 'Maxicare' ? 'selected' : '' ?>>Maxicare</option>
+                        <option value="Medicard" <?= ($p['insurance_provider'] ?? '') === 'Medicard' ? 'selected' : '' ?>>Medicard</option>
+                        <option value="Intellicare" <?= ($p['insurance_provider'] ?? '') === 'Intellicare' ? 'selected' : '' ?>>Intellicare</option>
+                        <option value="Pacific Cross" <?= ($p['insurance_provider'] ?? '') === 'Pacific Cross' ? 'selected' : '' ?>>Pacific Cross</option>
+                        <option value="Aetna" <?= ($p['insurance_provider'] ?? '') === 'Aetna' ? 'selected' : '' ?>>Aetna</option>
+                        <option value="Cocolife" <?= ($p['insurance_provider'] ?? '') === 'Cocolife' ? 'selected' : '' ?>>Cocolife</option>
+                        <option value="Caritas Health Shield" <?= ($p['insurance_provider'] ?? '') === 'Caritas Health Shield' ? 'selected' : '' ?>>Caritas Health Shield</option>
+                        <option value="AsianLife" <?= ($p['insurance_provider'] ?? '') === 'AsianLife' ? 'selected' : '' ?>>AsianLife</option>
+                        <option value="Inlife" <?= ($p['insurance_provider'] ?? '') === 'Inlife' ? 'selected' : '' ?>>Inlife</option>
+                        <option value="Other" <?= ($p['insurance_provider'] ?? '') === 'Other' || (!empty($p['insurance_provider']) && !in_array($p['insurance_provider'], ['PhilHealth', 'Maxicare', 'Medicard', 'Intellicare', 'Pacific Cross', 'Aetna', 'Cocolife', 'Caritas Health Shield', 'AsianLife', 'Inlife'])) ? 'selected' : '' ?>>Other</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="insurance_contact_number">Insurance Contact Number</label>
@@ -279,7 +291,8 @@ $visitType = $p['visit_type'] ?? 'inpatient';
                 </div>
                 <div class="form-group-inline">
                     <label for="policy_number">Policy Number</label>
-                    <input type="text" id="policy_number" name="policy_number" value="<?= esc($p['policy_number'] ?? '') ?>">
+                    <input type="text" id="policy_number" name="policy_number" value="<?= esc($p['policy_number'] ?? '') ?>" <?= empty($p['policy_number']) ? '' : 'readonly' ?>>
+                    <div style="font-size: 11px; color: #6b7280; margin-top: 2px;"><?= empty($p['policy_number']) ? 'Auto-generated based on provider' : 'Existing policy number' ?></div>
                 </div>
             </div>
         </div>
@@ -301,6 +314,20 @@ $visitType = $p['visit_type'] ?? 'inpatient';
                 <div class="form-group-inline">
                     <label for="admission_time">Admission Time</label>
                     <input type="time" id="admission_time" name="admission_time" value="<?= esc($p['admission_time'] ?? date('H:i')) ?>">
+                </div>
+                <div class="form-group-inline">
+                    <label for="inpatient_doctor_id">Assigned Doctor</label>
+                    <select id="inpatient_doctor_id" name="inpatient_doctor_id">
+                        <option value="">Select Doctor</option>
+                        <?php foreach (($doctors ?? []) as $doctor): ?>
+                            <option value="<?= esc($doctor['id']) ?>" <?= ($p['admission_doctor_id'] ?? '') == $doctor['id'] ? 'selected' : '' ?>>
+                                <?= esc($doctor['full_name']) ?>
+                                <?php if (!empty($doctor['specialization'])): ?>
+                                    • <?= esc($doctor['specialization']) ?>
+                                <?php endif; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="room_type">Room Type</label>
@@ -559,6 +586,26 @@ $visitType = $p['visit_type'] ?? 'inpatient';
                 }
             });
             
+        // Insurance Provider - Auto-populate Policy Number
+        const insuranceProviderSelect = document.getElementById('insurance_provider');
+        const policyNumberInput = document.getElementById('policy_number');
+        
+        if (insuranceProviderSelect && policyNumberInput) {
+            insuranceProviderSelect.addEventListener('change', function() {
+                const provider = this.value;
+                if (provider && provider !== 'Other' && !policyNumberInput.value) {
+                    // Generate policy number based on provider (only if not already set)
+                    const prefix = provider.substring(0, 3).toUpperCase();
+                    const timestamp = Date.now().toString().slice(-8);
+                    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                    policyNumberInput.value = prefix + '-' + timestamp + '-' + random;
+                    policyNumberInput.readOnly = true;
+                } else if (provider === 'Other') {
+                    policyNumberInput.readOnly = false;
+                }
+            });
+        }
+        
             roomNumberSelect.addEventListener('change', function() {
                 const roomType = roomTypeSelect.value;
                 const roomNumber = this.value;

@@ -112,7 +112,6 @@
                         <option value="">Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group-inline">
@@ -268,7 +267,20 @@
             <div class="patient-form-grid">
                 <div class="form-group-inline">
                     <label for="insurance_provider">Insurance Provider</label>
-                    <input type="text" id="insurance_provider" name="insurance_provider">
+                    <select id="insurance_provider" name="insurance_provider">
+                        <option value="">Select Provider</option>
+                        <option value="PhilHealth">PhilHealth (Government)</option>
+                        <option value="Maxicare">Maxicare</option>
+                        <option value="Medicard">Medicard</option>
+                        <option value="Intellicare">Intellicare</option>
+                        <option value="Pacific Cross">Pacific Cross</option>
+                        <option value="Aetna">Aetna</option>
+                        <option value="Cocolife">Cocolife</option>
+                        <option value="Caritas Health Shield">Caritas Health Shield</option>
+                        <option value="AsianLife">AsianLife</option>
+                        <option value="Inlife">Inlife</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="insurance_contact_number">Insurance Contact Number</label>
@@ -276,7 +288,8 @@
                 </div>
                 <div class="form-group-inline">
                     <label for="policy_number">Policy Number</label>
-                    <input type="text" id="policy_number" name="policy_number">
+                    <input type="text" id="policy_number" name="policy_number" readonly>
+                    <div style="font-size: 11px; color: #6b7280; margin-top: 2px;">Auto-generated based on provider</div>
                 </div>
             </div>
         </div>
@@ -285,6 +298,27 @@
             <div class="patient-section-title">Medical Notes</div>
             <div class="form-group-inline">
                 <textarea id="medical_notes" name="medical_notes" rows="3"></textarea>
+            </div>
+        </div>
+
+        <!-- Doctor Selection for Outpatient -->
+        <div id="outpatient-doctor-section" style="margin-bottom:14px; display: none;">
+            <div class="patient-section-title">Assigned Doctor (Outpatient)</div>
+            <div class="patient-form-grid">
+                <div class="form-group-inline">
+                    <label for="outpatient_doctor_id">Doctor</label>
+                    <select id="outpatient_doctor_id" name="outpatient_doctor_id">
+                        <option value="">Select Doctor</option>
+                        <?php foreach (($doctors ?? []) as $doctor): ?>
+                            <option value="<?= esc($doctor['id']) ?>">
+                                <?= esc($doctor['full_name']) ?>
+                                <?php if (!empty($doctor['specialization'])): ?>
+                                    • <?= esc($doctor['specialization']) ?>
+                                <?php endif; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -298,6 +332,20 @@
                 <div class="form-group-inline">
                     <label for="admission_time">Admission Time</label>
                     <input type="time" id="admission_time" name="admission_time">
+                </div>
+                <div class="form-group-inline">
+                    <label for="inpatient_doctor_id">Assigned Doctor</label>
+                    <select id="inpatient_doctor_id" name="inpatient_doctor_id">
+                        <option value="">Select Doctor</option>
+                        <?php foreach (($doctors ?? []) as $doctor): ?>
+                            <option value="<?= esc($doctor['id']) ?>">
+                                <?= esc($doctor['full_name']) ?>
+                                <?php if (!empty($doctor['specialization'])): ?>
+                                    • <?= esc($doctor['specialization']) ?>
+                                <?php endif; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group-inline">
                     <label for="room_type">Room Type</label>
@@ -423,6 +471,8 @@
                 outpatientBtn.classList.add('active');
                 inpatientBtn.classList.remove('active');
                 admissionSection.style.display = 'none';
+                const outpatientDoctorSection = document.getElementById('outpatient-doctor-section');
+                if (outpatientDoctorSection) outpatientDoctorSection.style.display = '';
                 // Hide sections for outpatient: Emergency Contact, Vitals, Insurance
                 if (emergencySection) emergencySection.style.display = 'none';
                 if (vitalsSection) vitalsSection.style.display = 'none';
@@ -650,6 +700,25 @@
                 }
             });
             
+        // Insurance Provider - Auto-populate Policy Number
+        const insuranceProviderSelect = document.getElementById('insurance_provider');
+        const policyNumberInput = document.getElementById('policy_number');
+        
+        if (insuranceProviderSelect && policyNumberInput) {
+            insuranceProviderSelect.addEventListener('change', function() {
+                const provider = this.value;
+                if (provider && provider !== 'Other') {
+                    // Generate policy number based on provider
+                    const prefix = provider.substring(0, 3).toUpperCase();
+                    const timestamp = Date.now().toString().slice(-8);
+                    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                    policyNumberInput.value = prefix + '-' + timestamp + '-' + random;
+                } else {
+                    policyNumberInput.value = '';
+                }
+            });
+        }
+        
             roomNumberSelect.addEventListener('change', function() {
                 const roomType = roomTypeSelect.value;
                 const roomNumber = this.value;

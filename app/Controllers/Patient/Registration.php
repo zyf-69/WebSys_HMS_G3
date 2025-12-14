@@ -26,9 +26,17 @@ class Registration extends BaseController
         }
         unset($patient);
 
+        // Get all active doctors for dropdown
+        $doctors = $db->table('doctors')
+            ->select('id, full_name, specialization, license_number')
+            ->where('status', 'active')
+            ->orderBy('full_name', 'ASC')
+            ->get()->getResultArray();
+
         $data = [
             'title' => 'Patient Registration & EHR | HMS System',
             'patients' => $patients,
+            'doctors' => $doctors,
         ];
 
         return view('patients/registration', $data);
@@ -126,6 +134,11 @@ class Registration extends BaseController
             $db->table('patient_notes')->insert($notesData);
         }
 
+        // Doctor assignment - different field names for inpatient vs outpatient
+        $doctorId = (int) ($visitType === 'inpatient' 
+            ? $request->getPost('inpatient_doctor_id') 
+            : $request->getPost('outpatient_doctor_id'));
+        
         // Admission details only for inpatient
         if ($visitType === 'inpatient') {
             $admissionDate = $request->getPost('admission_date');
@@ -137,12 +150,18 @@ class Registration extends BaseController
 
             $admissionData = [
                 'patient_id'         => $patientId,
+                'doctor_id'          => $doctorId > 0 ? $doctorId : null,
                 'admission_datetime' => $admissionDateTime,
                 'room_type'          => $request->getPost('room_type') ?: null,
                 'room_number'        => $request->getPost('room_number') ?: null,
                 'bed_number'         => $request->getPost('bed_number') ?: null,
             ];
             $db->table('admissions')->insert($admissionData);
+        } else {
+            // For outpatient, save doctor_id directly to patients table
+            if ($doctorId > 0) {
+                $db->table('patients')->where('id', $patientId)->update(['doctor_id' => $doctorId]);
+            }
         }
 
         $db->transComplete();
@@ -227,7 +246,7 @@ class Registration extends BaseController
                 pv.id as vitals_id, pv.blood_pressure, pv.heart_rate, pv.temperature, pv.height_cm, pv.weight_kg, pv.bmi,
                 pi.id as insurance_id, pi.provider_name as insurance_provider, pi.provider_contact_number as insurance_contact_number, pi.policy_number,
                 pn.id as notes_id, pn.notes as medical_notes,
-                a.id as admission_id, a.admission_datetime, a.room_type, a.room_number, a.bed_number')
+                a.id as admission_id, a.admission_datetime, a.room_type, a.room_number, a.bed_number, a.doctor_id as admission_doctor_id')
             ->join('patient_contacts pc', 'pc.patient_id = p.id', 'left')
             ->join('patient_emergency_contacts pec', 'pec.patient_id = p.id', 'left')
             ->join('patient_vitals pv', 'pv.patient_id = p.id', 'left')
@@ -255,9 +274,17 @@ class Registration extends BaseController
             $patient['visit_type'] = 'outpatient';
         }
 
+        // Get all active doctors for dropdown
+        $doctors = $db->table('doctors')
+            ->select('id, full_name, specialization, license_number')
+            ->where('status', 'active')
+            ->orderBy('full_name', 'ASC')
+            ->get()->getResultArray();
+
         $data = [
             'title' => 'Edit Patient Record | HMS System',
             'patient' => $patient,
+            'doctors' => $doctors,
         ];
 
         return view('patients/edit', $data);
@@ -395,8 +422,11 @@ class Registration extends BaseController
             if ($admissionDate && $admissionTime) {
                 $admissionDateTime = $admissionDate . ' ' . $admissionTime . ':00';
             }
+            
+            $doctorId = (int) $request->getPost('inpatient_doctor_id');
 
             $admissionData = [
+                'doctor_id'          => $doctorId > 0 ? $doctorId : null,
                 'admission_datetime' => $admissionDateTime,
                 'room_type'          => $request->getPost('room_type') ?: null,
                 'room_number'        => $request->getPost('room_number') ?: null,

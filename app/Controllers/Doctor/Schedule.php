@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Doctor;
 
 use App\Controllers\BaseController;
 
-class Scheduling extends BaseController
+class Schedule extends BaseController
 {
     public function index()
     {
@@ -13,39 +13,48 @@ class Scheduling extends BaseController
             return $result;
         }
 
-        if (! $this->hasRole('admin')) {
+        if (!$this->hasRole('doctor')) {
             return redirect()->to(base_url('dashboard'));
         }
 
+        $userId = session()->get('user_id');
         $db = db_connect();
 
-        // Doctors for select
-        $doctors = $db->table('doctors')
-            ->select('id, full_name, specialization, status')
-            ->where('status', 'active')
-            ->orderBy('full_name', 'ASC')
-            ->get()->getResultArray();
+        // Get doctor ID from doctors table
+        $doctor = $db->table('doctors')
+            ->where('user_id', $userId)
+            ->get()
+            ->getRowArray();
 
-        // Schedules for calendar (next year)
+        if (!$doctor) {
+            $this->session->setFlashdata('error', 'Doctor profile not found.');
+            return redirect()->to(base_url('doctor/dashboard'));
+        }
+
+        $doctorId = $doctor['id'];
+
+        // Get all schedules for this doctor (both admin-created and doctor-created)
         $today = date('Y-m-d');
         $oneYearLater = date('Y-m-d', strtotime('+1 year'));
 
-        $scheduleBuilder = $db->table('doctor_schedules ds')
-            ->select('ds.id, ds.doctor_id, ds.shift_name, ds.start_time, ds.end_time, ds.valid_from, ds.valid_to, ds.created_by, d.full_name')
-            ->join('doctors d', 'd.id = ds.doctor_id')
+        $schedules = $db->table('doctor_schedules ds')
+            ->select('ds.id, ds.shift_name, ds.start_time, ds.end_time, ds.valid_from, ds.valid_to, ds.created_by')
+            ->where('ds.doctor_id', $doctorId)
             ->where('ds.valid_to >=', $today)
             ->where('ds.valid_from <=', $oneYearLater)
-            ->orderBy('ds.valid_from', 'ASC');
-
-        $schedules = $scheduleBuilder->get()->getResultArray();
+            ->orderBy('ds.valid_from', 'ASC')
+            ->orderBy('ds.start_time', 'ASC')
+            ->get()
+            ->getResultArray();
 
         // Attach days of week
-        if (! empty($schedules)) {
+        if (!empty($schedules)) {
             $ids = array_column($schedules, 'id');
             $daysRows = $db->table('doctor_schedule_days')
                 ->select('schedule_id, day_of_week')
                 ->whereIn('schedule_id', $ids)
-                ->get()->getResultArray();
+                ->get()
+                ->getResultArray();
 
             $daysBySchedule = [];
             foreach ($daysRows as $row) {
@@ -59,12 +68,12 @@ class Scheduling extends BaseController
         }
 
         $data = [
-            'title'     => 'Doctor Scheduling | HMS System',
-            'doctors'   => $doctors,
+            'title' => 'My Schedule | Doctor Panel',
             'schedules' => $schedules,
+            'doctorId' => $doctorId,
         ];
 
-        return view('admin/scheduling', $data);
+        return view('doctor/schedule', $data);
     }
 
     public function store()
@@ -74,13 +83,27 @@ class Scheduling extends BaseController
             return $result;
         }
 
-        if (! $this->hasRole('admin')) {
+        if (!$this->hasRole('doctor')) {
             return redirect()->to(base_url('dashboard'));
         }
 
+        $userId = session()->get('user_id');
+        $db = db_connect();
+
+        // Get doctor ID
+        $doctor = $db->table('doctors')
+            ->where('user_id', $userId)
+            ->get()
+            ->getRowArray();
+
+        if (!$doctor) {
+            $this->session->setFlashdata('error', 'Doctor profile not found.');
+            return redirect()->to(base_url('doctor/dashboard'));
+        }
+
+        $doctorId = $doctor['id'];
         $request = $this->request;
 
-        $doctorId   = (int) $request->getPost('doctor_id');
         $shiftName  = $request->getPost('shift_name');
         $startTime  = $request->getPost('start_time');
         $endTime    = $request->getPost('end_time');
@@ -88,8 +111,8 @@ class Scheduling extends BaseController
         $validTo    = $request->getPost('valid_to');
         $days       = (array) $request->getPost('days');
 
-        if (! $doctorId || empty($days)) {
-            $this->session->setFlashdata('error', 'Please select a doctor and at least one day of availability.');
+        if (empty($days)) {
+            $this->session->setFlashdata('error', 'Please select at least one day of availability.');
             return redirect()->back()->withInput();
         }
 
@@ -101,7 +124,6 @@ class Scheduling extends BaseController
             }
         }
 
-        $db = db_connect();
         $db->transStart();
 
         $scheduleData = [
@@ -111,7 +133,7 @@ class Scheduling extends BaseController
             'end_time'   => $endTime ?: null,
             'valid_from' => $validFrom ?: null,
             'valid_to'   => $validTo ?: null,
-            'created_by' => 'admin', // Mark as admin-created
+            'created_by' => 'doctor', // Mark as doctor-created
         ];
 
         $db->table('doctor_schedules')->insert($scheduleData);
@@ -126,18 +148,19 @@ class Scheduling extends BaseController
             ];
         }
 
-        if (! empty($dayRows)) {
+        if (!empty($dayRows)) {
             $db->table('doctor_schedule_days')->insertBatch($dayRows);
         }
 
         $db->transComplete();
 
         if ($db->transStatus() === false) {
-            $this->session->setFlashdata('error', 'Unable to save doctor schedule. Please try again.');
+            $this->session->setFlashdata('error', 'Unable to save schedule. Please try again.');
             return redirect()->back()->withInput();
         }
 
-        $this->session->setFlashdata('success', 'Doctor schedule has been saved successfully.');
-        return redirect()->to(base_url('admin/scheduling'));
+        $this->session->setFlashdata('success', 'Schedule has been saved successfully.');
+        return redirect()->to(base_url('doctor/schedule'));
     }
 }
+

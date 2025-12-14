@@ -298,12 +298,19 @@
                     const badge = document.createElement('div');
                     badge.className = 'sched-badge';
                     badge.textContent = s.shift_name || 'Shift';
+                    // Color code based on created_by
+                    if (s.created_by === 'doctor') {
+                        badge.style.background = '#10b981'; // Green for doctor-created
+                    } else {
+                        badge.style.background = '#16a34a'; // Default green for admin-created
+                    }
                     cell.appendChild(badge);
 
                     const entry = document.createElement('div');
                     entry.className = 'sched-entry';
                     const timeRange = (s.start_time && s.end_time) ? (s.start_time.substr(0,5) + ' - ' + s.end_time.substr(0,5)) : '';
-                    entry.textContent = s.full_name + (timeRange ? (' • ' + timeRange) : '');
+                    const creator = s.created_by === 'doctor' ? ' (Doctor)' : ' (Admin)';
+                    entry.textContent = s.full_name + (timeRange ? (' • ' + timeRange) : '') + creator;
                     cell.appendChild(entry);
                 });
 

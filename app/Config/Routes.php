@@ -22,7 +22,14 @@ $routes->post('admin/scheduling', 'Admin\\Scheduling::store');
 $routes->get('admin/user-access', 'Admin\\UserAccess::index');
 $routes->post('admin/user-access', 'Admin\\UserAccess::store');
 $routes->get('admin/user-access/edit/(:num)', 'Admin\\UserAccess::edit/$1');
+// Allow GET on update to gracefully redirect back to edit instead of 404
+$routes->get('admin/user-access/update/(:num)', 'Admin\\UserAccess::update/$1');
 $routes->post('admin/user-access/update/(:num)', 'Admin\\UserAccess::update/$1');
+$routes->patch('admin/user-access/update/(:num)', 'Admin\\UserAccess::update/$1');
+
+// Admin pharmacy
+$routes->get('admin/pharmacy', 'Admin\\Pharmacy::index');
+$routes->post('admin/pharmacy/restock', 'Admin\\Pharmacy::restock');
 
 // Admin appointments
 $routes->get('admin/appointments', 'Admin\\Appointments::index');
@@ -38,6 +45,7 @@ $routes->get('nurse/dashboard', 'Nurse\\Dashboard::index');
 $routes->get('receptionist/dashboard', 'Receptionist\\Dashboard::index');
 $routes->get('lab/dashboard', 'Lab\\Dashboard::index');
 $routes->get('pharmacy/dashboard', 'Pharmacy\\Dashboard::index');
+$routes->post('pharmacy/dashboard/dispense', 'Pharmacy\\Dashboard::dispense');
 $routes->get('accounts/dashboard', 'Accounts\\Dashboard::index');
 $routes->get('it/dashboard', 'It\\Dashboard::index');
 

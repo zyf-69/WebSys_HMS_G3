@@ -141,13 +141,16 @@ $appointments = $appointments ?? [];
         <?= csrf_field() ?>
         <div class="appt-grid">
             <div>
-                <div class="appt-label">Patient (Outpatient Only)</div>
+                <div class="appt-label">Patient</div>
                 <select name="patient_id" id="patient_id" class="appt-select" required>
                     <option value="">Select patient</option>
                     <?php foreach ($patients as $p): ?>
-                        <?php $name = trim(($p['last_name'] ?? '') . ', ' . ($p['first_name'] ?? '') . ' ' . ($p['middle_name'] ?? '')); ?>
+                        <?php 
+                        $name = trim(($p['last_name'] ?? '') . ', ' . ($p['first_name'] ?? '') . ' ' . ($p['middle_name'] ?? ''));
+                        $patientType = $p['patient_type'] ?? 'Outpatient';
+                        ?>
                         <option value="<?= esc($p['id']) ?>" data-doctor-id="<?= esc($p['doctor_id'] ?? '') ?>" data-doctor-name="<?= esc($p['doctor_name'] ?? '') ?>">
-                            <?= esc($name) ?>
+                            <?= esc($name) ?> (<?= esc($patientType) ?>)
                         </option>
                     <?php endforeach; ?>
                 </select>

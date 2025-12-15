@@ -9,14 +9,22 @@
     RewriteRule ^ /WebSys_HMS_G3/%1 [R=301,L]
     
     # Second: If request is for a file/directory that exists in root, serve it directly
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    # BUT exclude .htaccess and other hidden files
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
+    RewriteRule ^ - [L]
+    
     RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
     RewriteRule ^ - [L]
     
     # Third: Don't rewrite if already pointing to public folder (internal rewrite)
-    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
+    RewriteCond %{REQUEST_URI} ^/WebSys_HMS_G3/public/
+    RewriteRule ^ - [L]
     
     # Fourth: Rewrite all other requests to public folder (but URL stays clean)
+    # This includes POST requests
+    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 

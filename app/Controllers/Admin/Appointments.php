@@ -20,15 +20,48 @@ class Appointments extends BaseController
 
         $db = db_connect();
 
-        // Patients for select - only outpatients (patients without admission records)
+        // Patients for select - all patients (both outpatients and inpatients)
+        // First get all patients with their doctor from patients table
         $patients = $db->table('patients p')
             ->select('p.id, p.first_name, p.middle_name, p.last_name, p.doctor_id, d.full_name as doctor_name')
-            ->join('admissions a', 'a.patient_id = p.id', 'left')
             ->join('doctors d', 'd.id = p.doctor_id', 'left')
-            ->where('a.id IS NULL') // Only outpatients (no admission record)
             ->orderBy('p.last_name', 'ASC')
             ->orderBy('p.first_name', 'ASC')
             ->get()->getResultArray();
+        
+        // Check which patients are inpatients (have admission records)
+        $inpatientIds = $db->table('admissions')
+            ->select('patient_id, doctor_id')
+            ->get()
+            ->getResultArray();
+        
+        $inpatientMap = [];
+        foreach ($inpatientIds as $admission) {
+            $inpatientMap[$admission['patient_id']] = $admission['doctor_id'] ?? null;
+        }
+        
+        // Add patient type and update doctor for inpatients if needed
+        foreach ($patients as &$patient) {
+            $patientId = $patient['id'];
+            if (isset($inpatientMap[$patientId])) {
+                $patient['patient_type'] = 'Inpatient';
+                // If patient doesn't have doctor_id but admission has doctor_id, use admission's doctor
+                if (empty($patient['doctor_id']) && !empty($inpatientMap[$patientId])) {
+                    $patient['doctor_id'] = $inpatientMap[$patientId];
+                    $doctor = $db->table('doctors')
+                        ->select('full_name')
+                        ->where('id', $inpatientMap[$patientId])
+                        ->get()
+                        ->getRowArray();
+                    if ($doctor) {
+                        $patient['doctor_name'] = $doctor['full_name'];
+                    }
+                }
+            } else {
+                $patient['patient_type'] = 'Outpatient';
+            }
+        }
+        unset($patient);
 
         // Get all active doctors from database (fresh query)
         $doctors = $db->table('doctors')

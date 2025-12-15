@@ -19,17 +19,35 @@ class Scheduling extends BaseController
 
         $db = db_connect();
 
-        // Doctors for select
-        $doctors = $db->table('doctors')
-            ->select('id, full_name, specialization, status')
-            ->where('status', 'active')
-            ->orderBy('full_name', 'ASC')
-            ->get()->getResultArray();
-
-        // Schedules for calendar (next year)
+        // Get today's date for filtering active schedules
         $today = date('Y-m-d');
         $oneYearLater = date('Y-m-d', strtotime('+1 year'));
 
+        // Get doctors who have active schedules (schedules that haven't expired yet)
+        // A schedule is active if valid_to >= today (hasn't expired)
+        $doctorsWithSchedules = $db->table('doctor_schedules')
+            ->select('doctor_id')
+            ->where('valid_to >=', $today)
+            ->groupBy('doctor_id')
+            ->get()
+            ->getResultArray();
+
+        $scheduledDoctorIds = array_column($doctorsWithSchedules, 'doctor_id');
+
+        // Doctors for select - only those WITHOUT active schedules
+        $doctorsQuery = $db->table('doctors')
+            ->select('id, full_name, specialization, status')
+            ->where('status', 'active')
+            ->orderBy('full_name', 'ASC');
+
+        // Exclude doctors who already have active schedules
+        if (!empty($scheduledDoctorIds)) {
+            $doctorsQuery->whereNotIn('id', $scheduledDoctorIds);
+        }
+
+        $doctors = $doctorsQuery->get()->getResultArray();
+
+        // Schedules for calendar (next year) - $today and $oneYearLater already defined above
         $scheduleBuilder = $db->table('doctor_schedules ds')
             ->select('ds.id, ds.doctor_id, ds.shift_name, ds.start_time, ds.end_time, ds.valid_from, ds.valid_to, ds.created_by, d.full_name')
             ->join('doctors d', 'd.id = ds.doctor_id')
@@ -93,6 +111,19 @@ class Scheduling extends BaseController
             return redirect()->back()->withInput();
         }
 
+        // Verify doctor exists and is active
+        $db = db_connect();
+        $doctor = $db->table('doctors')
+            ->where('id', $doctorId)
+            ->where('status', 'active')
+            ->get()
+            ->getRowArray();
+
+        if (!$doctor) {
+            $this->session->setFlashdata('error', 'Selected doctor not found or is not active.');
+            return redirect()->back()->withInput();
+        }
+
         // Enforce 1-year maximum range
         if ($validFrom && $validTo) {
             $maxTo = date('Y-m-d', strtotime($validFrom . ' +1 year'));
@@ -101,7 +132,6 @@ class Scheduling extends BaseController
             }
         }
 
-        $db = db_connect();
         $db->transStart();
 
         $scheduleData = [

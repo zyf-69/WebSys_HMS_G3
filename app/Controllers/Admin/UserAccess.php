@@ -213,39 +213,92 @@ class UserAccess extends BaseController
 
     public function update($id)
     {
+        // If accessed via GET, redirect back to edit form instead of 404
+        $method = strtolower($this->request->getMethod());
+        if ($method === 'get') {
+            return redirect()->to(base_url('admin/user-access/edit/' . $id));
+        }
+
         $result = $this->requireLogin();
         if ($result !== true) {
+            if ($method === 'patch' || $this->request->getHeaderLine('Content-Type') === 'application/json') {
+                return $this->response->setJSON(['success' => false, 'error' => 'Authentication required'])->setStatusCode(401);
+            }
             return $result;
         }
 
         if (! $this->hasRole('admin')) {
+            if ($method === 'patch' || $this->request->getHeaderLine('Content-Type') === 'application/json') {
+                return $this->response->setJSON(['success' => false, 'error' => 'Unauthorized'])->setStatusCode(403);
+            }
             return redirect()->to(base_url('dashboard'));
         }
 
         $request = $this->request;
         $db = db_connect();
+        $isApiRequest = ($method === 'patch' || $request->getHeaderLine('Content-Type') === 'application/json');
 
         // Check if user exists
         $existingUser = $db->table('users')->where('id', $id)->get()->getRowArray();
         if (!$existingUser) {
+            if ($isApiRequest) {
+                return $this->response->setJSON(['success' => false, 'error' => 'User not found'])->setStatusCode(404);
+            }
             $this->session->setFlashdata('error', 'User not found.');
             return redirect()->to(base_url('admin/user-access'));
         }
 
-        $firstName = trim((string) $request->getPost('first_name'));
-        $middleName = trim((string) $request->getPost('middle_name'));
-        $lastName  = trim((string) $request->getPost('last_name'));
-        $address   = trim((string) $request->getPost('address'));
-        $username  = trim((string) $request->getPost('username'));
-        $email     = trim((string) $request->getPost('email'));
-        $password  = (string) $request->getPost('password');
-        $roleId    = (int) $request->getPost('role_id');
-        $status    = trim((string) $request->getPost('status')) ?: 'active';
-        $licenseNumber = trim((string) $request->getPost('license_number'));
-        $specialization = trim((string) $request->getPost('specialization'));
+        // Get data from POST or JSON
+        if ($isApiRequest) {
+            $data = $request->getJSON(true) ?? [];
+            $firstName = trim((string) ($data['first_name'] ?? ''));
+            $middleName = trim((string) ($data['middle_name'] ?? ''));
+            $lastName  = trim((string) ($data['last_name'] ?? ''));
+            $address   = trim((string) ($data['address'] ?? ''));
+            $username  = trim((string) ($data['username'] ?? ''));
+            $email     = trim((string) ($data['email'] ?? ''));
+            $password  = (string) ($data['password'] ?? '');
+            $roleId    = (int) ($data['role_id'] ?? 0);
+            $status    = trim((string) ($data['status'] ?? 'active')) ?: 'active';
+            $licenseNumber = trim((string) ($data['license_number'] ?? ''));
+            $specialization = trim((string) ($data['specialization'] ?? ''));
+        } else {
+            $firstName = trim((string) $request->getPost('first_name'));
+            $middleName = trim((string) $request->getPost('middle_name'));
+            $lastName  = trim((string) $request->getPost('last_name'));
+            $address   = trim((string) $request->getPost('address'));
+            $username  = trim((string) $request->getPost('username'));
+            $email     = trim((string) $request->getPost('email'));
+            $password  = (string) $request->getPost('password');
+            $roleId    = (int) $request->getPost('role_id');
+            $status    = trim((string) $request->getPost('status')) ?: 'active';
+            $licenseNumber = trim((string) $request->getPost('license_number'));
+            $specialization = trim((string) $request->getPost('specialization'));
+        }
+
+        // Role restriction: System Admin (ID = 1) cannot change their own role
+        if ($id == 1 && $roleId != $existingUser['role_id']) {
+            if ($isApiRequest) {
+                return $this->response->setJSON(['success' => false, 'error' => 'System Admin cannot change their own role'])->setStatusCode(403);
+            }
+            $this->session->setFlashdata('error', 'System Admin cannot change their own role.');
+            return redirect()->back()->withInput();
+        }
 
         if ($email === '' || ! $roleId) {
+            if ($isApiRequest) {
+                return $this->response->setJSON(['success' => false, 'error' => 'Email and role are required'])->setStatusCode(400);
+            }
             $this->session->setFlashdata('error', 'Email and role are required.');
+            return redirect()->back()->withInput();
+        }
+
+        // Validate email format
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if ($isApiRequest) {
+                return $this->response->setJSON(['success' => false, 'error' => 'Invalid email format'])->setStatusCode(400);
+            }
+            $this->session->setFlashdata('error', 'Invalid email format.');
             return redirect()->back()->withInput();
         }
 
@@ -256,8 +309,27 @@ class UserAccess extends BaseController
             ->get()
             ->getRowArray();
         if ($exists) {
+            if ($isApiRequest) {
+                return $this->response->setJSON(['success' => false, 'error' => 'A user with this email already exists'])->setStatusCode(400);
+            }
             $this->session->setFlashdata('error', 'A user with this email already exists.');
             return redirect()->back()->withInput();
+        }
+
+        // Check username uniqueness (if username is provided)
+        if ($username !== '') {
+            $usernameExists = $db->table('users')
+                ->where('username', $username)
+                ->where('id !=', $id)
+                ->get()
+                ->getRowArray();
+            if ($usernameExists) {
+                if ($isApiRequest) {
+                    return $this->response->setJSON(['success' => false, 'error' => 'Username already taken'])->setStatusCode(400);
+                }
+                $this->session->setFlashdata('error', 'Username already taken.');
+                return redirect()->back()->withInput();
+            }
         }
 
         $userData = [
@@ -272,8 +344,17 @@ class UserAccess extends BaseController
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        // Update password only if provided
+        // Update password only if provided (trim to avoid accidental spaces)
+        $password = trim($password);
         if ($password !== '') {
+            // Basic length check to avoid empty/too short passwords
+            if (strlen($password) < 4) {
+                if ($isApiRequest) {
+                    return $this->response->setJSON(['success' => false, 'error' => 'Password must be at least 4 characters long'])->setStatusCode(400);
+                }
+                $this->session->setFlashdata('error', 'Password must be at least 4 characters long.');
+                return redirect()->back()->withInput();
+            }
             $userData['password'] = password_hash($password, PASSWORD_DEFAULT);
         }
 
@@ -326,6 +407,15 @@ class UserAccess extends BaseController
                 $nurseData['created_at'] = date('Y-m-d H:i:s');
                 $db->table('nurses')->insert($nurseData);
             }
+        }
+
+        // Return JSON response for API requests
+        if ($isApiRequest) {
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'User account has been updated successfully.',
+                'redirect' => base_url('admin/user-access')
+            ]);
         }
 
         $this->session->setFlashdata('success', 'User account has been updated successfully.');

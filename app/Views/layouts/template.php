@@ -299,7 +299,7 @@
                     ['url' => 'admin/scheduling', 'icon' => '📅', 'label' => 'Doctor Scheduling'],
                     ['url' => '#', 'icon' => '💲', 'label' => 'Billing'],
                     ['url' => '#', 'icon' => '⚗', 'label' => 'Laboratory'],
-                    ['url' => '#', 'icon' => '💊', 'label' => 'Pharmacy'],
+                    ['url' => 'admin/pharmacy', 'icon' => '💊', 'label' => 'Pharmacy'],
                     ['url' => '#', 'icon' => '📊', 'label' => 'Hospital Reports'],
                     ['url' => 'admin/user-access', 'icon' => '🛡', 'label' => 'User Management'],
                 ],

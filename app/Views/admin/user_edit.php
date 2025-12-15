@@ -56,8 +56,10 @@
         background: #1d4ed8;
         color: #ffffff;
         padding: 10px 16px;
+        -webkit-border-radius: 8px;
         border-radius: 8px;
         font-size: 13px;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         display: none;
@@ -103,7 +105,7 @@
         </div>
     <?php endif; ?>
 
-    <form id="user-edit-form" action="<?= base_url('admin/user-access/update/' . esc($user['id'])) ?>" method="post">
+    <form id="user-edit-form" action="/WebSys_HMS_G3/admin/user-access/update/<?= esc($user['id']) ?>" method="post">
         <?= csrf_field() ?>
         <div class="ua-grid">
             <div>

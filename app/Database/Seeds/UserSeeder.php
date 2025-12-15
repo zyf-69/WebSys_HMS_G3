@@ -8,13 +8,19 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
+        // Ensure roles are seeded first (required for foreign key constraints)
+        $rolesCount = $this->db->table('roles')->countAllResults();
+        if ($rolesCount === 0) {
+            $this->call('RoleSeeder');
+        }
+
         $now = date('Y-m-d H:i:s');
 
         $passwords = [
             'admin'        => password_hash('Admin123!', PASSWORD_DEFAULT),
             'doctor'       => password_hash('Doctor123!', PASSWORD_DEFAULT),
             'nurse'        => password_hash('Nurse123!', PASSWORD_DEFAULT),
-            'receptionist' => password_hash('Reception123!', PASSWORD_DEFAULT),
+            'receptionist' => password_hash('Recepiotn123!', PASSWORD_DEFAULT),
             'lab_staff'    => password_hash('Lab123!', PASSWORD_DEFAULT),
             'pharmacist'   => password_hash('Pharma123!', PASSWORD_DEFAULT),
             'accountant'   => password_hash('Account123!', PASSWORD_DEFAULT),
@@ -113,27 +119,42 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($users as $user) {
-            $this->db->table('users')->insert($user);
-            $userId = $this->db->insertID();
+            // Check if user already exists
+            $exists = $this->db->table('users')
+                ->where('username', $user['username'])
+                ->orWhere('email', $user['email'])
+                ->countAllResults();
+            
+            if ($exists === 0) {
+                $this->db->table('users')->insert($user);
+                $userId = $this->db->insertID();
 
-            // Automatically create doctor profile for doctor-role users
-            if ((int) $user['role_id'] === 3) {
-                $fullName = trim(($user['first_name'] ?? '') . ' ' . ($user['last_name'] ?? ''));
-                if ($fullName === '') {
-                    $fullName = $user['username'] ?? $user['email'];
+                // Automatically create doctor profile for doctor-role users
+                if ((int) $user['role_id'] === 3) {
+                    $fullName = trim(($user['first_name'] ?? '') . ' ' . ($user['last_name'] ?? ''));
+                    if ($fullName === '') {
+                        $fullName = $user['username'] ?? $user['email'];
+                    }
+
+                    // Check if doctor profile already exists
+                    $doctorExists = $this->db->table('doctors')
+                        ->where('user_id', $userId)
+                        ->countAllResults();
+                    
+                    if ($doctorExists === 0) {
+                        $doctorData = [
+                            'user_id'        => $userId,
+                            'full_name'      => $fullName,
+                            'specialization' => null,
+                            'license_number' => null,
+                            'status'         => 'active',
+                            'created_at'     => $now,
+                            'updated_at'     => $now,
+                        ];
+
+                        $this->db->table('doctors')->insert($doctorData);
+                    }
                 }
-
-                $doctorData = [
-                    'user_id'        => $userId,
-                    'full_name'      => $fullName,
-                    'specialization' => null,
-                    'license_number' => null,
-                    'status'         => 'active',
-                    'created_at'     => $now,
-                    'updated_at'     => $now,
-                ];
-
-                $this->db->table('doctors')->insert($doctorData);
             }
         }
     }

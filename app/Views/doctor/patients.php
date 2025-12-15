@@ -8,182 +8,248 @@
     </div>
 </div>
 
+<?php if (session()->getFlashdata('error')): ?>
+    <div style="padding: 12px; background: #fee2e2; color: #991b1b; border-radius: 8px; margin-bottom: 20px; font-size: 13px; border: 1px solid #fecaca;">
+        <?= esc(session()->getFlashdata('error')) ?>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('success')): ?>
+    <div style="padding: 12px; background: #dcfce7; color: #166534; border-radius: 8px; margin-bottom: 20px; font-size: 13px; border: 1px solid #bbf7d0;">
+        <?= esc(session()->getFlashdata('success')) ?>
+    </div>
+<?php endif; ?>
+
 <style>
-    .records-card {
+    .search-container {
         background: #ffffff;
         border-radius: 12px;
         border: 1px solid #e5e7eb;
         padding: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
+    }
+    .search-input {
+        width: 100%;
+        padding: 10px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+    }
+    .search-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
     .patient-card {
         background: #ffffff;
         border-radius: 12px;
         border: 1px solid #e5e7eb;
-        padding: 16px;
-        margin-bottom: 14px;
+        padding: 20px;
+        margin-bottom: 16px;
+        transition: box-shadow 0.2s;
+    }
+    .patient-card:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     .patient-header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         cursor: pointer;
         user-select: none;
-        padding: 8px 0;
+        padding: 12px;
+        margin: -12px;
+        border-radius: 8px;
         transition: background-color 0.2s;
     }
     .patient-header:hover {
         background-color: #f9fafb;
-        border-radius: 8px;
-        padding: 8px 12px;
-        margin: -8px -12px;
+    }
+    .patient-header-left {
+        flex: 1;
+    }
+    .patient-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 6px;
+    }
+    .patient-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .patient-code {
+        font-size: 13px;
+        color: #6b7280;
+    }
+    .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .badge-inpatient {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+    .badge-outpatient {
+        background: #dcfce7;
+        color: #166534;
+    }
+    .badge-appointment {
+        background: #fef3c7;
+        color: #92400e;
+    }
+    .patient-header-right {
+        text-align: right;
+        min-width: 150px;
+    }
+    .appointment-info {
+        font-size: 12px;
+        color: #6b7280;
+        margin-bottom: 6px;
     }
     .patient-header-toggle {
-        font-size: 16px;
+        font-size: 14px;
         color: #6b7280;
         transition: transform 0.2s;
-        margin-left: 12px;
+        margin-top: 4px;
     }
     .patient-header-toggle.expanded {
         transform: rotate(180deg);
     }
     .patient-details {
         display: none;
-        margin-top: 16px;
-        padding-top: 16px;
+        margin-top: 24px;
+        padding-top: 24px;
         border-top: 2px solid #e5e7eb;
     }
     .patient-details.expanded {
         display: block;
     }
-    .patient-name {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 4px;
-    }
-    .patient-code {
-        font-size: 12px;
-        color: #6b7280;
-    }
     .info-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 14px;
-        margin-bottom: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
     .info-section {
         background: #f9fafb;
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 8px;
+        border-radius: 10px;
+        padding: 16px;
+        border-left: 4px solid #3b82f6;
     }
     .info-section-title {
         font-size: 12px;
-        font-weight: 600;
-        color: #6b7280;
-        margin-bottom: 8px;
+        font-weight: 700;
+        color: #374151;
+        margin-bottom: 12px;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1px;
     }
     .info-item {
         font-size: 13px;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .info-item:last-child {
+        margin-bottom: 0;
     }
     .info-label {
         color: #6b7280;
         font-weight: 500;
+        min-width: 140px;
     }
     .info-value {
         color: #111827;
-    }
-    .badge {
-        display: inline-block;
-        padding: 3px 8px;
-        border-radius: 999px;
-        font-size: 11px;
         font-weight: 500;
-    }
-    .badge-active {
-        background: #dcfce7;
-        color: #166534;
-    }
-    .badge-pending {
-        background: #fef3c7;
-        color: #92400e;
-    }
-    .badge-completed {
-        background: #dbeafe;
-        color: #1e40af;
-    }
-    .search-filter {
-        margin-bottom: 16px;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
-    .search-input {
+        text-align: right;
         flex: 1;
-        padding: 8px 12px;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-        font-size: 13px;
     }
     .empty-state {
         text-align: center;
-        padding: 40px 20px;
+        padding: 60px 20px;
         color: #6b7280;
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+    }
+    .empty-state-icon {
+        font-size: 64px;
+        margin-bottom: 16px;
+    }
+    .empty-state-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #374151;
+    }
+    .empty-state-text {
+        font-size: 14px;
     }
 </style>
 
-<div class="records-card">
-    <div class="search-filter">
+<div class="search-container">
         <input type="text" class="search-input" id="searchInput" placeholder="Search by patient name, code, or email...">
     </div>
     
     <?php if (empty($patients)): ?>
         <div class="empty-state">
             <div class="empty-state-icon">👤</div>
-            <div style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">No patients found</div>
-            <div style="font-size: 12px;">Patients with appointments will appear here.</div>
+        <div class="empty-state-title">No patients found</div>
+        <div class="empty-state-text">Patients with appointments will appear here.</div>
         </div>
     <?php else: ?>
         <div id="patientsList">
             <?php foreach ($patients as $patient): ?>
                 <div class="patient-card" data-search="<?= strtolower(esc($patient['full_name'] . ' ' . ($patient['patient_code'] ?? '') . ' ' . ($patient['email'] ?? ''))) ?>">
                     <div class="patient-header" onclick="togglePatientDetails(this)">
-                        <div style="flex: 1; display: flex; align-items: center;">
-                            <div>
+                    <div class="patient-header-left">
                                 <div class="patient-name"><?= esc($patient['full_name']) ?></div>
-                            <div class="patient-code">
+                        <div class="patient-meta">
+                            <span class="patient-code">
                                 <?php if (!empty($patient['patient_code'])): ?>
-                                    Patient Code: <?= esc($patient['patient_code']) ?>
+                                    ID: #<?= esc($patient['patient_code']) ?>
                                 <?php else: ?>
                                     ID: #<?= esc($patient['id']) ?>
                                 <?php endif; ?>
-                                <span style="margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 500; background: <?= ($patient['patient_type'] ?? 'outpatient') === 'inpatient' ? '#dbeafe' : '#dcfce7' ?>; color: <?= ($patient['patient_type'] ?? 'outpatient') === 'inpatient' ? '#1e40af' : '#166534' ?>;">
+                            </span>
+                            <span class="badge badge-<?= ($patient['patient_type'] ?? 'outpatient') === 'inpatient' ? 'inpatient' : 'outpatient' ?>">
                                     <?= esc($patient['visit_type'] ?? 'Outpatient') ?>
+                            </span>
+                            <?php if (!empty($patient['room_number']) || !empty($patient['bed_number'])): ?>
+                                <span style="font-size: 12px; color: #6b7280;">
+                                    Room: <?= esc($patient['room_number'] ?? 'N/A') ?> | Bed: <?= esc($patient['bed_number'] ?? 'N/A') ?>
                                 </span>
-                            </div>
-                            </div>
-                            <div class="patient-header-toggle">▼</div>
+                            <?php endif; ?>
                         </div>
-                        <div style="text-align: right;">
+                    </div>
+                    <div class="patient-header-right">
                             <?php if (!empty($patient['appointment_date'])): ?>
-                                <div style="font-size: 12px; color: #6b7280; margin-bottom: 4px;">
-                                    Last Appointment: <?= date('M d, Y', strtotime($patient['appointment_date'])) ?>
+                            <div class="appointment-info">
+                                <div style="font-weight: 600; margin-bottom: 4px;">Last Appointment</div>
+                                <div><?= date('M d, Y', strtotime($patient['appointment_date'])) ?></div>
                                     <?php if (!empty($patient['start_time'])): ?>
-                                        <div style="font-size: 11px; margin-top: 2px;">
-                                            <?= date('h:i A', strtotime($patient['start_time'])) ?>
+                                    <div style="margin-top: 2px;">
+                                        <?= date('g:i A', strtotime($patient['start_time'])) ?>
                                             <?php if (!empty($patient['end_time'])): ?>
-                                                - <?= date('h:i A', strtotime($patient['end_time'])) ?>
+                                            - <?= date('g:i A', strtotime($patient['end_time'])) ?>
                                             <?php endif; ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                                <span class="badge badge-<?= strtolower($patient['appointment_status'] ?? 'pending') ?>">
+                            <span class="badge badge-appointment" style="margin-top: 8px; display: inline-block;">
                                     <?= esc(ucfirst($patient['appointment_status'] ?? 'Pending')) ?>
                                 </span>
                             <?php endif; ?>
+                        <div class="patient-header-toggle">▼</div>
                         </div>
                     </div>
 
@@ -194,7 +260,7 @@
                             <div class="info-section-title">Personal Information</div>
                             <div class="info-item">
                                 <span class="info-label">Age:</span>
-                                <span class="info-value"><?= $patient['age'] ?? 'N/A' ?> years</span>
+                                <span class="info-value"><?= esc($patient['age'] ?? 'N/A') ?> years</span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label">Gender:</span>
@@ -304,10 +370,9 @@
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-</div>
 
 <script>
-    // Simple search functionality
+    // Search functionality
     document.getElementById('searchInput')?.addEventListener('input', function(e) {
         const searchTerm = e.target.value.toLowerCase();
         const cards = document.querySelectorAll('.patient-card');
@@ -328,6 +393,15 @@
             details.classList.remove('expanded');
             toggle.classList.remove('expanded');
         } else {
+            // Close all other expanded cards
+            document.querySelectorAll('.patient-details.expanded').forEach(expanded => {
+                expanded.classList.remove('expanded');
+            });
+            document.querySelectorAll('.patient-header-toggle.expanded').forEach(expanded => {
+                expanded.classList.remove('expanded');
+            });
+            
+            // Open this card
             details.classList.add('expanded');
             toggle.classList.add('expanded');
         }
@@ -335,4 +409,3 @@
 </script>
 
 <?= $this->endSection() ?>
-

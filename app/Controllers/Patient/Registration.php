@@ -44,13 +44,21 @@ class Registration extends BaseController
 
     public function store()
     {
+        log_message('error', '=== PATIENT REGISTRATION STORE METHOD CALLED ===');
+        log_message('error', 'Request method: ' . $this->request->getMethod());
+        log_message('error', 'Request URI: ' . $this->request->getUri()->getPath());
+        log_message('error', 'POST data: ' . json_encode($this->request->getPost()));
+        
         $result = $this->requireLogin();
         if ($result !== true) {
+            log_message('error', 'User not logged in');
             return $result;
         }
 
         $request = $this->request;
         $visitType = $request->getPost('visit_type') ?: 'outpatient';
+        
+        log_message('error', 'Visit type: ' . $visitType);
 
         $db = db_connect();
         $db->transStart();
@@ -164,13 +172,15 @@ class Registration extends BaseController
             }
         }
 
-        $db->transComplete();
-
-        if ($db->transStatus() === false) {
+        // Complete the transaction - this will commit if successful, rollback if failed
+        if ($db->transComplete() === false) {
+            $error = $db->error();
+            log_message('error', 'Transaction failed: ' . json_encode($error));
             $this->session->setFlashdata('error', 'Unable to save patient record. Please try again.');
             return redirect()->back()->withInput();
         }
 
+        log_message('error', 'Patient record saved successfully - Patient ID: ' . $patientId);
         $this->session->setFlashdata('success', 'Patient record has been saved successfully.');
         return redirect()->to(base_url('patients/register'));
     }

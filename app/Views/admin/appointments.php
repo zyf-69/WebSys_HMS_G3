@@ -137,7 +137,7 @@ $appointments = $appointments ?? [];
         </div>
     <?php endif; ?>
 
-    <form action="<?= base_url('admin/appointments') ?>" method="post" id="appointment-form">
+    <form action="/WebSys_HMS_G3/admin/appointments" method="post" id="appointment-form">
         <?= csrf_field() ?>
         <div class="appt-grid">
             <div>

@@ -75,6 +75,15 @@ class RoleSeeder extends Seeder
             ],
         ];
 
-        $this->db->table('roles')->insertBatch($data);
+        // Check if roles already exist and only insert new ones
+        foreach ($data as $role) {
+            $exists = $this->db->table('roles')
+                ->where('id', $role['id'])
+                ->countAllResults();
+            
+            if ($exists === 0) {
+                $this->db->table('roles')->insert($role);
+            }
+        }
     }
 }

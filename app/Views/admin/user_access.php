@@ -64,7 +64,7 @@
         </div>
     <?php endif; ?>
 
-    <form action="<?= base_url('admin/user-access') ?>" method="post">
+    <form action="/WebSys_HMS_G3/admin/user-access" method="post">
         <?= csrf_field() ?>
         <div class="ua-grid">
             <div>

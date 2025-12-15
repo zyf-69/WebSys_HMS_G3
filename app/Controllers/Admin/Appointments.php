@@ -140,13 +140,20 @@ class Appointments extends BaseController
 
     public function store()
     {
+        log_message('error', '=== APPOINTMENTS STORE METHOD CALLED ===');
+        log_message('error', 'Request method: ' . $this->request->getMethod());
+        log_message('error', 'Request URI: ' . $this->request->getUri()->getPath());
+        log_message('error', 'POST data: ' . json_encode($this->request->getPost()));
+        
         $result = $this->requireLogin();
         if ($result !== true) {
+            log_message('error', 'User not logged in');
             return $result;
         }
 
         // Allow both admin and receptionist to create appointments
         if (! $this->hasRole(['admin', 'hospital_administrator', 'receptionist'])) {
+            log_message('error', 'User does not have required role');
             return redirect()->to(base_url('dashboard'));
         }
 
@@ -158,6 +165,8 @@ class Appointments extends BaseController
         $appointmentDate  = $request->getPost('appointment_date');
         $appointmentTime  = $request->getPost('appointment_time'); // Selected appointment time
         $scheduleType     = $request->getPost('schedule_type');
+        
+        log_message('error', 'Form data - patient_id: ' . $patientId . ', doctor_id: ' . $doctorId . ', appointment_date: ' . $appointmentDate);
 
         if (! $patientId || ! $doctorId || ! $appointmentDate) {
             $this->session->setFlashdata('error', 'Patient, doctor, and appointment date are required.');
@@ -219,7 +228,7 @@ class Appointments extends BaseController
             $db->table('appointments')->insert($data);
             $appointmentId = $db->insertID();
             
-            log_message('info', 'Appointment saved successfully. ID: ' . $appointmentId . ', Patient: ' . $patientId . ', Doctor: ' . $doctorId);
+            log_message('error', 'Appointment saved successfully. ID: ' . $appointmentId . ', Patient: ' . $patientId . ', Doctor: ' . $doctorId);
             $this->session->setFlashdata('success', 'Appointment has been saved successfully.');
         } catch (\Exception $e) {
             log_message('error', 'Appointment save error: ' . $e->getMessage());

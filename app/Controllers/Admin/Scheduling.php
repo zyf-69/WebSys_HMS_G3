@@ -87,12 +87,19 @@ class Scheduling extends BaseController
 
     public function store()
     {
+        log_message('error', '=== ADMIN SCHEDULING STORE METHOD CALLED ===');
+        log_message('error', 'Request method: ' . $this->request->getMethod());
+        log_message('error', 'Request URI: ' . $this->request->getUri()->getPath());
+        log_message('error', 'POST data: ' . json_encode($this->request->getPost()));
+        
         $result = $this->requireLogin();
         if ($result !== true) {
+            log_message('error', 'User not logged in');
             return $result;
         }
 
         if (! $this->hasRole('admin')) {
+            log_message('error', 'User does not have admin role');
             return redirect()->to(base_url('dashboard'));
         }
 
@@ -105,6 +112,8 @@ class Scheduling extends BaseController
         $validFrom  = $request->getPost('valid_from');
         $validTo    = $request->getPost('valid_to');
         $days       = (array) $request->getPost('days');
+        
+        log_message('error', 'Form data - doctor_id: ' . $doctorId . ', shift_name: ' . ($shiftName ?? 'null') . ', days count: ' . count($days));
 
         if (! $doctorId || empty($days)) {
             $this->session->setFlashdata('error', 'Please select a doctor and at least one day of availability.');
@@ -160,13 +169,15 @@ class Scheduling extends BaseController
             $db->table('doctor_schedule_days')->insertBatch($dayRows);
         }
 
-        $db->transComplete();
-
-        if ($db->transStatus() === false) {
+        // Complete the transaction - this will commit if successful, rollback if failed
+        if ($db->transComplete() === false) {
+            $error = $db->error();
+            log_message('error', 'Transaction failed: ' . json_encode($error));
             $this->session->setFlashdata('error', 'Unable to save doctor schedule. Please try again.');
             return redirect()->back()->withInput();
         }
 
+        log_message('error', 'Admin schedule saved successfully - Schedule ID: ' . $scheduleId);
         $this->session->setFlashdata('success', 'Doctor schedule has been saved successfully.');
         return redirect()->to(base_url('admin/scheduling'));
     }

@@ -99,4 +99,65 @@ abstract class BaseController extends Controller
             'role_id'    => $this->session->get('role_id'),
         ];
     }
+
+    /**
+     * Auto-generate a bill for a patient based on service provided
+     * 
+     * @param int $patientId Patient ID
+     * @param string $billType Bill type (Pharmacy, Laboratory, Consultation, Procedure, Room & Board)
+     * @param float $amount Total amount
+     * @param string $description Description of the service/item
+     * @return int|false Bill ID on success, false on failure
+     */
+    protected function generateBill($patientId, $billType, $amount, $description = null)
+    {
+        if (!$patientId || !$billType || $amount <= 0) {
+            log_message('error', 'Invalid parameters for bill generation: patient_id=' . $patientId . ', bill_type=' . $billType . ', amount=' . $amount);
+            return false;
+        }
+
+        $db = db_connect();
+
+        try {
+            // Generate invoice number: INV-YYYY-NNNN
+            $year = date('Y');
+            $lastInvoice = $db->table('bills')
+                ->like('invoice_number', "INV-{$year}-", 'after')
+                ->orderBy('invoice_number', 'DESC')
+                ->limit(1)
+                ->get()
+                ->getRowArray();
+            
+            if ($lastInvoice && !empty($lastInvoice['invoice_number'])) {
+                // Extract the sequence number
+                $parts = explode('-', $lastInvoice['invoice_number']);
+                $sequence = isset($parts[2]) ? (int) $parts[2] : 0;
+                $sequence++;
+            } else {
+                $sequence = 1;
+            }
+            
+            $invoiceNumber = sprintf('INV-%s-%04d', $year, $sequence);
+
+            $billData = [
+                'patient_id' => $patientId,
+                'invoice_number' => $invoiceNumber,
+                'bill_type' => $billType,
+                'total_amount' => $amount,
+                'description' => $description,
+                'status' => 'pending',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ];
+
+            $db->table('bills')->insert($billData);
+            $billId = $db->insertID();
+
+            log_message('info', 'Bill generated: ID=' . $billId . ', Invoice=' . $invoiceNumber . ', Patient=' . $patientId . ', Type=' . $billType . ', Amount=' . $amount);
+            return $billId;
+        } catch (\Exception $e) {
+            log_message('error', 'Failed to generate bill: ' . $e->getMessage());
+            return false;
+        }
+    }
 }

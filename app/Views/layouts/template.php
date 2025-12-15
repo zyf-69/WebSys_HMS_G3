@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><?= esc($title ?? 'HMS System') ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -79,7 +80,7 @@
             font-size: 13px;
             color: var(--text-main);
             text-decoration: none;
-            transition: background 0.12s ease, color 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease;
+            transition: background 0.12s ease, color 0.12s ease, transform 0.08s ease, -webkit-box-shadow 0.12s ease, box-shadow 0.12s ease;
         }
         .nav-link:hover {
             background: #e5f6ed;
@@ -297,11 +298,12 @@
                     ['url' => 'admin/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
                     ['url' => 'patients/records', 'icon' => '👤', 'label' => 'Patient Records'],
                     ['url' => 'admin/scheduling', 'icon' => '📅', 'label' => 'Doctor Scheduling'],
-                    ['url' => '#', 'icon' => '💲', 'label' => 'Billing'],
-                    ['url' => '#', 'icon' => '⚗', 'label' => 'Laboratory'],
+                    ['url' => 'admin/billing', 'icon' => '💲', 'label' => 'Billing'],
+                    ['url' => 'admin/laboratory', 'icon' => '⚗', 'label' => 'Laboratory'],
                     ['url' => 'admin/pharmacy', 'icon' => '💊', 'label' => 'Pharmacy'],
-                    ['url' => '#', 'icon' => '📊', 'label' => 'Hospital Reports'],
+                    ['url' => 'admin/reports', 'icon' => '📊', 'label' => 'Hospital Reports'],
                     ['url' => 'admin/user-access', 'icon' => '🛡', 'label' => 'User Management'],
+                    ['url' => 'admin/settings', 'icon' => '⚙️', 'label' => 'Settings'],
                 ],
                 'hospital_administrator' => [
                     ['url' => 'admin/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
@@ -325,30 +327,33 @@
                         ]
                     ],
                     ['url' => 'admin/appointments', 'icon' => '🗓', 'label' => 'Patient Scheduling'],
+                    ['url' => 'receptionist/follow-up', 'icon' => '🔄', 'label' => 'Follow-up'],
+                    ['url' => 'receptionist/walk-in', 'icon' => '🚶', 'label' => 'Walk-in'],
                 ],
                 'doctor' => [
                     ['url' => 'doctor/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
                     ['url' => 'doctor/patients', 'icon' => '👤', 'label' => 'Patients'],
                     ['url' => 'doctor/appointments', 'icon' => '🗓', 'label' => 'Appointments'],
                     ['url' => 'doctor/schedule', 'icon' => '📅', 'label' => 'My Schedule'],
-                    ['url' => '#', 'icon' => '⚗', 'label' => 'Lab Results'],
-                    ['url' => '#', 'icon' => '💊', 'label' => 'Prescriptions'],
+                    ['url' => 'doctor/lab-results', 'icon' => '⚗', 'label' => 'Lab Results'],
+                    ['url' => 'doctor/prescriptions', 'icon' => '💊', 'label' => 'Prescriptions'],
+                    ['url' => 'doctor/medical-reports', 'icon' => '📋', 'label' => 'Medical Reports'],
                 ],
                 'nurse' => [
                     ['url' => 'nurse/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '👤', 'label' => 'Assigned Patients'],
-                    ['url' => '#', 'icon' => '📋', 'label' => 'Vitals Monitoring'],
-                    ['url' => '#', 'icon' => '💊', 'label' => 'Medications'],
+                    ['url' => 'nurse/assigned-patients', 'icon' => '👤', 'label' => 'Assigned Patients'],
+                    ['url' => 'nurse/vitals-monitoring', 'icon' => '📋', 'label' => 'Vitals Monitoring'],
+                    ['url' => 'nurse/medications', 'icon' => '💊', 'label' => 'Medications'],
                 ],
                 'lab_staff' => [
                     ['url' => 'lab/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '⚗', 'label' => 'Test Requests'],
-                    ['url' => '#', 'icon' => '📊', 'label' => 'Test Results'],
+                    ['url' => 'lab/test-requests', 'icon' => '⚗', 'label' => 'Test Requests'],
+                    ['url' => 'lab/test-results', 'icon' => '📊', 'label' => 'Test Results'],
                 ],
                 'laboratory_staff' => [
                     ['url' => 'lab/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '⚗', 'label' => 'Test Requests'],
-                    ['url' => '#', 'icon' => '📊', 'label' => 'Test Results'],
+                    ['url' => 'lab/test-requests', 'icon' => '⚗', 'label' => 'Test Requests'],
+                    ['url' => 'lab/test-results', 'icon' => '📊', 'label' => 'Test Results'],
                 ],
                 'pharmacist' => [
                     ['url' => 'pharmacy/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
@@ -357,21 +362,21 @@
                 ],
                 'accountant' => [
                     ['url' => 'accounts/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '💲', 'label' => 'Billing'],
-                    ['url' => '#', 'icon' => '📄', 'label' => 'Invoices'],
-                    ['url' => '#', 'icon' => '🏥', 'label' => 'Insurance Claims'],
+                    ['url' => 'accounts/billing', 'icon' => '💲', 'label' => 'Billing & Invoices'],
+                    ['url' => 'accounts/expenses', 'icon' => '💰', 'label' => 'Expenses'],
+                    ['url' => 'accounts/reports', 'icon' => '📊', 'label' => 'Reports'],
                 ],
                 'it_staff' => [
                     ['url' => 'it/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '🔧', 'label' => 'System Maintenance'],
-                    ['url' => '#', 'icon' => '🛡', 'label' => 'Security'],
-                    ['url' => '#', 'icon' => '💾', 'label' => 'Backups'],
+                    ['url' => 'it/system-maintenance', 'icon' => '🔧', 'label' => 'System Maintenance'],
+                    ['url' => 'it/user-management', 'icon' => '👥', 'label' => 'User Management'],
+                    ['url' => 'it/backups', 'icon' => '💾', 'label' => 'Backups'],
                 ],
                 'it' => [
                     ['url' => 'it/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '🔧', 'label' => 'System Maintenance'],
-                    ['url' => '#', 'icon' => '🛡', 'label' => 'Security'],
-                    ['url' => '#', 'icon' => '💾', 'label' => 'Backups'],
+                    ['url' => 'it/system-maintenance', 'icon' => '🔧', 'label' => 'System Maintenance'],
+                    ['url' => 'it/user-management', 'icon' => '👥', 'label' => 'User Management'],
+                    ['url' => 'it/backups', 'icon' => '💾', 'label' => 'Backups'],
                 ],
             ];
             

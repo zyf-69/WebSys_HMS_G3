@@ -123,7 +123,7 @@ class Dashboard extends BaseController
         try {
             // Get prescription with medicine details
             $prescription = $db->table('prescriptions p')
-                ->select('p.*, m.stock_quantity as medicine_stock, m.medicine_name')
+                ->select('p.*, m.stock_quantity as medicine_stock, m.medicine_name, m.unit_price, m.unit')
                 ->join('medicines m', 'm.id = p.medicine_id', 'left')
                 ->where('p.id', $prescriptionId)
                 ->get()
@@ -172,6 +172,16 @@ class Dashboard extends BaseController
                     'stock_quantity' => $newStock,
                     'updated_at' => date('Y-m-d H:i:s'),
                 ]);
+
+            // Auto-generate bill for pharmacy/medication
+            $unitPrice = floatval($prescription['unit_price'] ?? 0);
+            $totalAmount = $dispenseQuantity * $unitPrice;
+            if ($totalAmount > 0) {
+                $medicineName = $prescription['medicine_name'] ?? 'Medicine';
+                $unit = $prescription['unit'] ?? 'unit';
+                $description = $dispenseQuantity . ' ' . $unit . ' of ' . $medicineName;
+                $this->generateBill($prescription['patient_id'], 'Pharmacy', $totalAmount, $description);
+            }
 
             $db->transComplete();
 

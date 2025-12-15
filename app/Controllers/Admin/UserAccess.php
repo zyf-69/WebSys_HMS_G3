@@ -43,12 +43,19 @@ class UserAccess extends BaseController
 
     public function store()
     {
+        log_message('error', '=== USER ACCESS STORE METHOD CALLED ===');
+        log_message('error', 'Request method: ' . $this->request->getMethod());
+        log_message('error', 'Request URI: ' . $this->request->getUri()->getPath());
+        log_message('error', 'POST data: ' . json_encode($this->request->getPost()));
+        
         $result = $this->requireLogin();
         if ($result !== true) {
+            log_message('error', 'User not logged in');
             return $result;
         }
 
         if (! $this->hasRole('admin')) {
+            log_message('error', 'User does not have admin role');
             return redirect()->to(base_url('dashboard'));
         }
 
@@ -148,6 +155,7 @@ class UserAccess extends BaseController
             }
         }
 
+        log_message('error', 'User account created successfully with ID: ' . $userId);
         $this->session->setFlashdata('success', 'User account has been created successfully.');
         return redirect()->to(base_url('admin/user-access'));
     }

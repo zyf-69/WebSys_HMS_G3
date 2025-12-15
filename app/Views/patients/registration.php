@@ -73,7 +73,7 @@
 <?php $patients = $patients ?? []; ?>
 
 <div class="patient-form-card" style="margin-bottom:16px;">
-    <form action="<?= base_url('patients/register') ?>" method="post" id="patient-registration-form">
+    <form action="/WebSys_HMS_G3/patients/register" method="post" id="patient-registration-form">
         <?= csrf_field() ?>
 
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">

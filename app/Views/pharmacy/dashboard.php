@@ -130,6 +130,7 @@
         color: #ffffff;
         border: none;
         padding: 6px 12px;
+        -webkit-border-radius: 6px;
         border-radius: 6px;
         font-size: 12px;
         font-weight: 600;
@@ -172,6 +173,7 @@
         max-width: 500px;
         max-height: 90vh;
         overflow-y: auto;
+        -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     .modal-header {
@@ -199,6 +201,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        -webkit-border-radius: 6px;
         border-radius: 6px;
     }
     .modal-close:hover {
@@ -219,6 +222,7 @@
         width: 100%;
         padding: 10px 12px;
         border: 1px solid #d1d5db;
+        -webkit-border-radius: 8px;
         border-radius: 8px;
         font-size: 13px;
         transition: border-color 0.2s;
@@ -226,6 +230,7 @@
     .form-input:focus {
         outline: none;
         border-color: #16a34a;
+        -webkit-box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
         box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
     }
     .form-actions {
@@ -241,6 +246,7 @@
         color: #ffffff;
         border: none;
         padding: 10px 18px;
+        -webkit-border-radius: 8px;
         border-radius: 8px;
         font-size: 13px;
         font-weight: 600;
@@ -256,6 +262,7 @@
         color: #374151;
         border: none;
         padding: 10px 18px;
+        -webkit-border-radius: 8px;
         border-radius: 8px;
         font-size: 13px;
         font-weight: 600;

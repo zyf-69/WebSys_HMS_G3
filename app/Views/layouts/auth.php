@@ -34,8 +34,10 @@
             display: grid;
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
             gap: 0;
+            -webkit-border-radius: 16px;
             border-radius: 16px;
             overflow: hidden;
+            -webkit-box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
             box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
             background-color: var(--card-bg);
         }
@@ -140,12 +142,13 @@
             border-radius: 8px;
             border: 1px solid #d0d7de;
             font-size: 14px;
-            transition: border-color 0.16s ease, box-shadow 0.16s ease;
+            transition: border-color 0.16s ease, -webkit-box-shadow 0.16s ease, box-shadow 0.16s ease;
         }
         input[type="email"]:focus,
         input[type="password"]:focus {
             outline: none;
             border-color: var(--primary-color);
+            -webkit-box-shadow: 0 0 0 1px rgba(31, 111, 235, 0.25);
             box-shadow: 0 0 0 1px rgba(31, 111, 235, 0.25);
         }
         .form-row {
@@ -177,10 +180,11 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+            transition: transform 0.12s ease, -webkit-box-shadow 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
         }
         .btn-primary:hover {
             filter: brightness(1.03);
+            -webkit-box-shadow: 0 10px 22px rgba(31, 111, 235, 0.35);
             box-shadow: 0 10px 22px rgba(31, 111, 235, 0.35);
             transform: translateY(-1px);
         }

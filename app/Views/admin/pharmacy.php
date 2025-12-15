@@ -152,7 +152,165 @@
         margin-bottom: 16px;
         opacity: 0.5;
     }
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-overlay.active {
+        display: flex;
+    }
+    .modal-content {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 24px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid #e5e7eb;
+    }
+    .modal-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111827;
+    }
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #6b7280;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+    }
+    .modal-close:hover {
+        background: #f3f4f6;
+    }
+    .form-group {
+        margin-bottom: 16px;
+    }
+    .form-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: #111827;
+    }
+    .form-select,
+    .form-input {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        font-size: 13px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-select:focus,
+    .form-input:focus {
+        outline: none;
+        border-color: #16a34a;
+        box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+    }
+    .form-input[type="number"] {
+        -moz-appearance: textfield;
+    }
+    .form-input[type="number"]::-webkit-outer-spin-button,
+    .form-input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid #e5e7eb;
+    }
+    .btn-primary {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: none;
+        background: #16a34a;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+    .btn-primary:hover {
+        background: #15803d;
+    }
+    .btn-secondary {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid #d1d5db;
+        background: #ffffff;
+        color: #111827;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+    .btn-secondary:hover {
+        background: #f9fafb;
+    }
+    .btn-restock {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: none;
+        background: #16a34a;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+    .btn-restock:hover {
+        background: #15803d;
+    }
+    .current-stock {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 6px;
+    }
 </style>
+
+<?php if (session()->getFlashdata('error')): ?>
+    <div style="padding: 12px; background: #fee2e2; color: #991b1b; border-radius: 8px; margin-bottom: 20px; font-size: 13px; border: 1px solid #fecaca;">
+        <?= esc(session()->getFlashdata('error')) ?>
+    </div>
+<?php endif; ?>
+
+<?php 
+$successFlash = session()->getFlashdata('success');
+if ($successFlash): ?>
+    <div style="padding: 12px; background: #dcfce7; color: #166534; border-radius: 8px; margin-bottom: 20px; font-size: 13px; border: 1px solid #bbf7d0;">
+        <?= esc($successFlash) ?>
+    </div>
+<?php endif; ?>
 
 <div class="pharmacy-stats">
     <div class="stat-card">
@@ -293,19 +451,8 @@
             <button type="button" class="modal-close" onclick="closeRestockModal()">&times;</button>
         </div>
         
-        <?php if (session()->getFlashdata('error')): ?>
-            <div style="padding: 12px; background: #fee2e2; color: #991b1b; border-radius: 8px; margin-bottom: 16px; font-size: 13px;">
-                <?= esc(session()->getFlashdata('error')) ?>
-            </div>
-        <?php endif; ?>
         
-        <?php if (session()->getFlashdata('success')): ?>
-            <div style="padding: 12px; background: #dcfce7; color: #166534; border-radius: 8px; margin-bottom: 16px; font-size: 13px;">
-                <?= esc(session()->getFlashdata('success')) ?>
-            </div>
-        <?php endif; ?>
-        
-        <form action="<?= base_url('admin/pharmacy/restock') ?>" method="post" id="restockForm">
+        <form action="/WebSys_HMS_G3/admin/pharmacy/restock" method="post" id="restockForm">
             <?= csrf_field() ?>
             
             <div class="form-group">
@@ -411,6 +558,31 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeRestockModal();
     }
+});
+
+// Handle restock form submission
+document.getElementById('restockForm').addEventListener('submit', function(e) {
+    const medicineId = document.getElementById('medicine_id').value;
+    const quantity = document.getElementById('quantity').value;
+    console.log('Form submitting - Medicine ID:', medicineId, 'Quantity:', quantity);
+    console.log('Form action:', this.action);
+    console.log('Form method:', this.method);
+    
+    if (!medicineId || !quantity || quantity <= 0) {
+        e.preventDefault();
+        alert('Please select a medicine and enter a valid quantity.');
+        return false;
+    }
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing...';
+    }
+    
+    // Let the form submit normally
+    return true;
 });
 
 document.addEventListener('DOMContentLoaded', function() {

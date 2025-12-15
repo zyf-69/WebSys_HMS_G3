@@ -133,7 +133,7 @@
 <?php endif; ?>
 
 <div class="sched-card">
-    <form action="<?= base_url('admin/scheduling') ?>" method="post" id="doctor-scheduling-form">
+    <form action="/WebSys_HMS_G3/admin/scheduling" method="post" id="doctor-scheduling-form">
         <?= csrf_field() ?>
         <div class="sched-grid">
             <div>

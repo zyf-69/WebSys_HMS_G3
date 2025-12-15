@@ -357,8 +357,8 @@
                 ],
                 'pharmacist' => [
                     ['url' => 'pharmacy/dashboard', 'icon' => '●', 'label' => 'Dashboard'],
-                    ['url' => '#', 'icon' => '💊', 'label' => 'Prescriptions'],
-                    ['url' => '#', 'icon' => '📦', 'label' => 'Inventory'],
+                    ['url' => 'pharmacy/prescriptions', 'icon' => '💊', 'label' => 'Prescriptions'],
+                    ['url' => 'pharmacy/inventory', 'icon' => '📦', 'label' => 'Inventory'],
                 ],
                 'accountant' => [
                     ['url' => 'accounts/dashboard', 'icon' => '●', 'label' => 'Dashboard'],

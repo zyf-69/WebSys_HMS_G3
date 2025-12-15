@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'admin'        => password_hash('Admin123!', PASSWORD_DEFAULT),
             'doctor'       => password_hash('Doctor123!', PASSWORD_DEFAULT),
             'nurse'        => password_hash('Nurse123!', PASSWORD_DEFAULT),
-            'receptionist' => password_hash('Recepiotn123!', PASSWORD_DEFAULT),
+            'receptionist' => password_hash('Reception123!', PASSWORD_DEFAULT),
             'lab_staff'    => password_hash('Lab123!', PASSWORD_DEFAULT),
             'pharmacist'   => password_hash('Pharma123!', PASSWORD_DEFAULT),
             'accountant'   => password_hash('Account123!', PASSWORD_DEFAULT),

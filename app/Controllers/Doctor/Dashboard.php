@@ -44,7 +44,7 @@ class Dashboard extends BaseController
 
         // Count pending lab requests (lab tests assigned to this doctor)
         $pendingLabRequests = $db->table('lab_tests')
-            ->where('doctor_id', $userId)
+            ->where('doctor_id', $doctorId)
             ->where('status', 'pending')
             ->countAllResults(false);
 

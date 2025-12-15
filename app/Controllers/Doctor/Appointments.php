@@ -72,9 +72,7 @@ class Appointments extends BaseController
 
         // Get follow-up checkups for this doctor
         $followUps = $db->table('follow_ups fu')
-            ->select('fu.*, 
-                p.id as patient_id, p.patient_code, p.first_name, p.middle_name, p.last_name, p.date_of_birth, p.gender,
-                a.appointment_date as original_appointment_date')
+            ->select('fu.*, p.id as patient_id, p.patient_code, p.first_name, p.middle_name, p.last_name, p.date_of_birth, p.gender, a.appointment_date as original_appointment_date')
             ->join('patients p', 'p.id = fu.patient_id', 'left')
             ->join('appointments a', 'a.id = fu.original_appointment_id', 'left')
             ->where('fu.doctor_id', $doctorId)

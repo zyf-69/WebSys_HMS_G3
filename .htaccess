@@ -1,0 +1,46 @@
+# Remove /public from URL and redirect all requests to public folder
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /WebSys_HMS_G3/
+    
+    # First: Redirect any URL containing /public/ to remove it (301 permanent redirect)
+    # This handles cases where user types /public/ in the URL
+    RewriteCond %{THE_REQUEST} \s/WebSys_HMS_G3/public/([^\s?]*) [NC]
+    RewriteRule ^ /WebSys_HMS_G3/%1 [R=301,L]
+    
+    # Second: If request is for a file/directory that exists in root, serve it directly
+    # BUT exclude .htaccess and other hidden files
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
+    RewriteRule ^ - [L]
+    
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
+    RewriteRule ^ - [L]
+    
+    # Third: Don't rewrite if already pointing to public folder (internal rewrite)
+    RewriteCond %{REQUEST_URI} ^/WebSys_HMS_G3/public/
+    RewriteRule ^ - [L]
+    
+    # Fourth: Rewrite all other requests to public folder (but URL stays clean)
+    # This includes POST requests
+    RewriteCond %{REQUEST_URI} !^/WebSys_HMS_G3/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Security: Deny access to sensitive files and folders
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Deny direct access to these directories
+<IfModule mod_rewrite.c>
+    RewriteRule ^(app|system|writable|tests)/ - [F,L]
+</IfModule>
+
+# Deny access to .env and other sensitive files
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|package(-lock)?\.json)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

@@ -78,6 +78,13 @@
     .btn-restore:hover {
         background: #059669;
     }
+    .btn-delete {
+        background: #ef4444;
+        color: #ffffff;
+    }
+    .btn-delete:hover {
+        background: #dc2626;
+    }
     .btn-create {
         background: #3b82f6;
         color: #ffffff;
@@ -123,24 +130,53 @@
     }
 </style>
 
+<?php 
+$errorFlash = session()->getFlashdata('error');
+$successFlash = session()->getFlashdata('success');
+?>
+<?php if ($errorFlash): ?>
+    <div style="padding: 12px; background: #fee2e2; color: #991b1b; border-radius: 8px; margin-bottom: 20px; font-size: 13px; border: 1px solid #fecaca;">
+        <?= esc($errorFlash) ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($successFlash): ?>
+    <div style="padding: 12px; background: #dcfce7; color: #166534; border-radius: 8px; margin-bottom: 20px; font-size: 13px; border: 1px solid #bbf7d0;">
+        <?= esc($successFlash) ?>
+    </div>
+<?php endif; ?>
+
 <div class="backup-card">
-    <button class="btn-create" onclick="alert('Backup creation functionality would be implemented here.')">Create New Backup</button>
+    <form action="/WebSys_HMS_G3/it/backups/create" method="post" style="display: inline;">
+        <?= csrf_field() ?>
+        <button type="submit" class="btn-create" id="create-backup-btn">Create New Backup</button>
+    </form>
     <h3>Backup History</h3>
-    <ul class="backup-list">
-        <li class="backup-item">
-            <div class="backup-info">
-                <div class="backup-name">Database Backup - <?= date('M d, Y H:i') ?></div>
-                <div class="backup-details">Full database backup • Size: -- MB</div>
-            </div>
-            <div style="display: flex; align-items: center;">
-                <span class="backup-status status-success">Success</span>
-                <div class="backup-actions">
-                    <button class="btn-backup btn-download" onclick="alert('Download functionality would be implemented here.')">Download</button>
-                    <button class="btn-backup btn-restore" onclick="alert('Restore functionality would be implemented here.')">Restore</button>
+    <?php if (empty($backups ?? [])): ?>
+        <div class="empty-state">
+            <div class="empty-state-icon">💾</div>
+            <div>No backups found. Create your first backup to get started.</div>
+        </div>
+    <?php else: ?>
+        <ul class="backup-list">
+            <?php foreach ($backups as $backup): ?>
+            <li class="backup-item">
+                <div class="backup-info">
+                    <div class="backup-name">Database Backup - <?= esc($backup['created_at_full']) ?></div>
+                    <div class="backup-details">Full database backup • Size: <?= number_format($backup['size_mb'], 2) ?> MB</div>
                 </div>
-            </div>
-        </li>
-    </ul>
+                <div style="display: flex; align-items: center;">
+                    <span class="backup-status status-<?= esc($backup['status']) ?>"><?= ucfirst(esc($backup['status'])) ?></span>
+                    <div class="backup-actions">
+                        <a href="/WebSys_HMS_G3/it/backups/download/<?= urlencode($backup['filename']) ?>" class="btn-backup btn-download" style="text-decoration: none; display: inline-block;">Download</a>
+                        <button class="btn-backup btn-restore" onclick="confirmRestore('<?= esc($backup['filename']) ?>', '<?= esc($backup['created_at_full']) ?>')">Restore</button>
+                        <button class="btn-backup btn-delete" onclick="confirmDelete('<?= esc($backup['filename']) ?>')">Delete</button>
+                    </div>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 </div>
 
 <div class="backup-card">
@@ -176,18 +212,55 @@
         <div style="margin-bottom: 16px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                 <span style="font-size: 13px; color: #374151;">Storage Used</span>
-                <span style="font-weight: 600; color: #6b7280;">-- / -- GB</span>
+                <span style="font-weight: 600; color: #6b7280;">
+                    <?= number_format(($storageUsed ?? 0) / 1024 / 1024 / 1024, 2) ?> / <?= number_format(($storageTotal ?? 0) / 1024 / 1024 / 1024, 2) ?> GB
+                </span>
             </div>
             <div style="height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden;">
-                <div style="height: 100%; width: 35%; background: #3b82f6;"></div>
+                <div style="height: 100%; width: <?= min(100, max(0, $storagePercent ?? 0)) ?>%; background: #3b82f6; transition: width 0.3s;"></div>
             </div>
         </div>
         <div style="font-size: 12px; color: #6b7280;">
             <div style="margin-bottom: 8px;">• Backup retention: 30 days</div>
-            <div>• Storage location: Local server</div>
+            <div>• Storage location: Local server (writable/backups/)</div>
+            <div>• Total backups: <?= count($backups ?? []) ?></div>
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const createBtn = document.getElementById('create-backup-btn');
+    if (createBtn) {
+        createBtn.closest('form').addEventListener('submit', function(e) {
+            createBtn.disabled = true;
+            createBtn.textContent = 'Creating Backup...';
+        });
+    }
+});
+
+function confirmRestore(filename, date) {
+    if (confirm('WARNING: This will restore the database from backup "' + filename + '" created on ' + date + '.\n\nThis action will REPLACE all current data with the backup data.\n\nAre you sure you want to continue?')) {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/WebSys_HMS_G3/it/backups/restore/' + encodeURIComponent(filename);
+        form.innerHTML = '<?= csrf_field() ?>';
+        document.body.appendChild(form);
+        form.submit();
+    }
+}
+
+function confirmDelete(filename) {
+    if (confirm('Are you sure you want to delete backup "' + filename + '"?\n\nThis action cannot be undone.')) {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/WebSys_HMS_G3/it/backups/delete/' + encodeURIComponent(filename);
+        form.innerHTML = '<?= csrf_field() ?>';
+        document.body.appendChild(form);
+        form.submit();
+    }
+}
+</script>
 
 <?= $this->endSection() ?>
 

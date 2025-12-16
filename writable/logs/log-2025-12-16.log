@@ -1332,3 +1332,63 @@ AND `d`.`status` = :d.status:', [...], false)
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 DEBUG - 2025-12-16 02:47:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:49:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:49:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:49:10 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-16 02:49:10 --> Request method: GET
+ERROR - 2025-12-16 02:49:10 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:49:10 --> Is logged in: NO
+DEBUG - 2025-12-16 02:49:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:49:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:49:29 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-16 02:49:29 --> Request method: GET
+ERROR - 2025-12-16 02:49:29 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:49:29 --> Is logged in: NO
+DEBUG - 2025-12-16 02:50:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:50:34 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-16 02:50:34 --> Request method: POST
+ERROR - 2025-12-16 02:50:34 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:50:34 --> POST data: {"csrf_test_name":"1bdfd7df762cab84d3ad2653a17445bf","email":"Jul@gmail.com","password":"Julpaci1"}
+ERROR - 2025-12-16 02:50:34 --> Raw input: csrf_test_name=1bdfd7df762cab84d3ad2653a17445bf&email=Jul%40gmail.com&password=Julpaci1
+INFO - 2025-12-16 02:50:34 --> User logged in successfully: Jul@gmail.com (Role: it_staff) - Redirecting to: it/dashboard
+DEBUG - 2025-12-16 02:50:34 --> Session data set: {"user_id":"21","username":"Jul","email":"Jul@gmail.com","first_name":"Jul","last_name":"Pacis","role":"it_staff","role_id":"2","isLoggedIn":true}
+DEBUG - 2025-12-16 02:50:34 --> Redirect URL: it/dashboard
+DEBUG - 2025-12-16 02:50:34 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-16 02:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:50:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:50:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-16 02:54:26 --> ParseError: Unclosed '(' on line 323 does not match '}'
+[Method: GET, Route: it/backups]
+in APPPATH\Controllers\It\Backups.php on line 328.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\WebSys_HMS_G3\\app\\Controllers\\It\\Backups.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\It\\Backups')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\It\\Backups')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\It\\Backups', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-16 02:57:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:58:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-16 02:58:53 --> Backup created: backup_2025-12-16_02-58-53.sql by user: Jul@gmail.com
+DEBUG - 2025-12-16 02:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-16 02:59:08 --> Backup deleted: backup_2025-12-16_02-58-53.sql by user: Jul@gmail.com
+DEBUG - 2025-12-16 02:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-16 02:59:10 --> Backup created: backup_2025-12-16_02-59-10.sql by user: Jul@gmail.com
+DEBUG - 2025-12-16 02:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:59:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 03:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 03:00:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 03:00:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-16 03:00:15 --> Backup deleted: backup_2025-12-16_02-59-10.sql by user: Jul@gmail.com
+DEBUG - 2025-12-16 03:00:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 03:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 03:00:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 03:00:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

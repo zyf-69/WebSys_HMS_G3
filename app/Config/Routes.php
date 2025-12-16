@@ -107,6 +107,10 @@ $routes->get('it/user-management', 'It\\UserManagement::index');
 $routes->get('it/user-management/edit/(:num)', 'It\\UserManagement::edit/$1');
 $routes->post('it/user-management/update/(:num)', 'It\\UserManagement::update/$1');
 $routes->get('it/backups', 'It\\Backups::index');
+$routes->post('it/backups/create', 'It\\Backups::create');
+$routes->get('it/backups/download/(:segment)', 'It\\Backups::download/$1');
+$routes->post('it/backups/restore/(:segment)', 'It\\Backups::restore/$1');
+$routes->post('it/backups/delete/(:segment)', 'It\\Backups::delete/$1');
 
 // Patient registration & EHR
 $routes->get('patients/register', 'Patient\\Registration::index');

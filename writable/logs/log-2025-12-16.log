@@ -1168,3 +1168,167 @@ ERROR - 2025-12-16 02:39:43 --> Request URI: /WebSys_HMS_G3/public/admin/user-ac
 ERROR - 2025-12-16 02:39:43 --> POST data: {"csrf_test_name":"fd86556c47a6e1dc84ce4ba5ca57ba8a","first_name":"Jul ","middle_name":"","last_name":"Pacis","address":"labangal, gsc","username":"Jul","email":"Jul@gmail.com","password":"Julpaci1","confirm_password":"Julpaci1","role_id":"2","status":"active","license_number":"","specialization":""}
 ERROR - 2025-12-16 02:39:44 --> User account created successfully with ID: 21
 DEBUG - 2025-12-16 02:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:40:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:40:40 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-16 02:40:40 --> Request method: GET
+ERROR - 2025-12-16 02:40:40 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:40:40 --> Is logged in: YES
+ERROR - 2025-12-16 02:40:40 --> Already logged in, redirecting to: admin/dashboard
+DEBUG - 2025-12-16 02:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:40:46 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-16 02:40:46 --> Request method: GET
+ERROR - 2025-12-16 02:40:46 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:40:46 --> Is logged in: NO
+DEBUG - 2025-12-16 02:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-16 02:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:42:49 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-16 02:42:49 --> Request method: GET
+ERROR - 2025-12-16 02:42:49 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:42:49 --> Is logged in: NO
+DEBUG - 2025-12-16 02:43:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:43:02 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-16 02:43:02 --> Request method: POST
+ERROR - 2025-12-16 02:43:02 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-16 02:43:02 --> POST data: {"csrf_test_name":"1bdfd7df762cab84d3ad2653a17445bf","email":"admin@gmail.com","password":"123123"}
+ERROR - 2025-12-16 02:43:02 --> Raw input: csrf_test_name=1bdfd7df762cab84d3ad2653a17445bf&email=admin%40gmail.com&password=123123
+INFO - 2025-12-16 02:43:03 --> User logged in successfully: admin@gmail.com (Role: admin) - Redirecting to: admin/dashboard
+DEBUG - 2025-12-16 02:43:03 --> Session data set: {"user_id":"6","username":"admin","email":"admin@gmail.com","first_name":"System","last_name":"Administrator","role":"admin","role_id":"1","isLoggedIn":true}
+DEBUG - 2025-12-16 02:43:03 --> Redirect URL: admin/dashboard
+DEBUG - 2025-12-16 02:43:03 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-16 02:43:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-16 02:45:26 --> ParseError: syntax error, unexpected single-quoted string "hospitalName", expecting "]"
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Controllers\Admin\Dashboard.php on line 158.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\WebSys_HMS_G3\\app\\Controllers\\Admin\\Dashboard.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\Dashboard')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\Dashboard')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Admin\\Dashboard', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-16 02:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-16 02:46:17 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_sched...' at line 1 in C:\xampp\htdocs\WebSys_HMS_G3\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\WebSys_HMS_G3\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `DISTINC...', 0)
+#1 C:\xampp\htdocs\WebSys_HMS_G3\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 C:\xampp\htdocs\WebSys_HMS_G3\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 C:\xampp\htdocs\WebSys_HMS_G3\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 C:\xampp\htdocs\WebSys_HMS_G3\app\Controllers\Admin\Dashboard.php(51): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\WebSys_HMS_G3\system\CodeIgniter.php(933): App\Controllers\Admin\Dashboard->index()
+#6 C:\xampp\htdocs\WebSys_HMS_G3\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Dashboard))
+#7 C:\xampp\htdocs\WebSys_HMS_G3\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\WebSys_HMS_G3\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\WebSys_HMS_G3\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\WebSys_HMS_G3\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-16 02:46:17 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_sched...' at line 1
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = :dsd.day_of_week:
+AND `ds`.`valid_from` <= :ds.valid_from:
+AND `ds`.`valid_to` >= :ds.valid_to:
+AND `d`.`status` = :d.status:', [...], false)
+ 2 APPPATH\Controllers\Admin\Dashboard.php(51): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Dashboard->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Dashboard))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-16 02:46:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_sched...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = \'tuesday\'
+AND `ds`.`valid_from` <= \'2025-12-16\'
+AND `ds`.`valid_to` >= \'2025-12-16\'
+AND `d`.`status` = \'active\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = \'tuesday\'
+AND `ds`.`valid_from` <= \'2025-12-16\'
+AND `ds`.`valid_to` >= \'2025-12-16\'
+AND `d`.`status` = \'active\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = :dsd.day_of_week:
+AND `ds`.`valid_from` <= :ds.valid_from:
+AND `ds`.`valid_to` >= :ds.valid_to:
+AND `d`.`status` = :d.status:', [...], false)
+ 4 APPPATH\Controllers\Admin\Dashboard.php(51): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Dashboard->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Dashboard))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-16 02:46:17 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_sched...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = \'tuesday\'
+AND `ds`.`valid_from` <= \'2025-12-16\'
+AND `ds`.`valid_to` >= \'2025-12-16\'
+AND `d`.`status` = \'active\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = \'tuesday\'
+AND `ds`.`valid_from` <= \'2025-12-16\'
+AND `ds`.`valid_to` >= \'2025-12-16\'
+AND `d`.`status` = \'active\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = \'tuesday\'
+AND `ds`.`valid_from` <= \'2025-12-16\'
+AND `ds`.`valid_to` >= \'2025-12-16\'
+AND `d`.`status` = \'active\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `ds`.`doctor_id`, `d`.`full_name`
+FROM `doctor_schedules` `ds`
+JOIN `doctor_schedule_days` `dsd` ON `dsd`.`schedule_id` = `ds`.`id`
+JOIN `doctors` `d` ON `d`.`id` = `ds`.`doctor_id`
+WHERE `dsd`.`day_of_week` = :dsd.day_of_week:
+AND `ds`.`valid_from` <= :ds.valid_from:
+AND `ds`.`valid_to` >= :ds.valid_to:
+AND `d`.`status` = :d.status:', [...], false)
+ 5 APPPATH\Controllers\Admin\Dashboard.php(51): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-12-16 02:47:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -16,29 +16,31 @@
         <div class="card-header">
             <div class="card-title">Total Patients</div>
         </div>
-        <div class="card-value">--</div>
-        <div class="card-trend">+0 today</div>
+        <div class="card-value"><?= number_format($totalPatients ?? 0) ?></div>
+        <div class="card-trend" style="color: <?= ($patientsToday ?? 0) > 0 ? '#10b981' : '#6b7280' ?>;">
+            +<?= number_format($patientsToday ?? 0) ?> today
+        </div>
     </div>
     <div class="card">
         <div class="card-header">
             <div class="card-title">On-duty Doctors</div>
         </div>
-        <div class="card-value">--</div>
-        <div class="card-trend">Schedule synced</div>
+        <div class="card-value"><?= number_format($onDutyDoctors ?? 0) ?></div>
+        <div class="card-trend" style="color: #10b981;">Schedule synced</div>
     </div>
     <div class="card">
         <div class="card-header">
             <div class="card-title">Nurses Assigned</div>
         </div>
-        <div class="card-value">--</div>
-        <div class="card-trend">Wards balanced</div>
+        <div class="card-value"><?= number_format($nursesAssigned ?? 0) ?></div>
+        <div class="card-trend" style="color: #10b981;">Wards balanced</div>
     </div>
     <div class="card">
         <div class="card-header">
-            <div class="card-title">Todays Appointments</div>
+            <div class="card-title">Today's Appointments</div>
         </div>
-        <div class="card-value">--</div>
-        <div class="card-trend">Clinic activity</div>
+        <div class="card-value"><?= number_format($todayAppointments ?? 0) ?></div>
+        <div class="card-trend" style="color: #10b981;">Clinic activity</div>
     </div>
 </div>
 
@@ -74,24 +76,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>Login</td>
-                <td>Authentication</td>
-            </tr>
-            <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>Updated patient record</td>
-                <td>Patients</td>
-            </tr>
-            <tr>
-                <td>--</td>
-                <td>--</td>
-                <td>Scheduled appointment</td>
-                <td>Scheduling</td>
-            </tr>
+            <?php if (!empty($recentActivity)): ?>
+                <?php foreach ($recentActivity as $activity): ?>
+                <tr>
+                    <td><?= esc($activity['time'] ?? '--') ?></td>
+                    <td><?= esc($activity['user'] ?? '--') ?></td>
+                    <td><?= esc($activity['action'] ?? '--') ?></td>
+                    <td><?= esc($activity['module'] ?? '--') ?></td>
+                </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #6b7280; padding: 20px;">No recent activity</td>
+                </tr>
+            <?php endif; ?>
             </tbody>
         </table>
     </div>
@@ -111,7 +109,7 @@
             </tr>
             <tr>
                 <th>Hospital</th>
-                <td>St. Peter Hospital</td>
+                <td><?= esc($hospitalName ?? 'St. Peter Hospital') ?></td>
             </tr>
             <tr>
                 <th>Logged in as</th>

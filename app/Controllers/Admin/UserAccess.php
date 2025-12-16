@@ -3,9 +3,16 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\SettingsModel;
 
 class UserAccess extends BaseController
 {
+    protected $settingsModel;
+
+    public function __construct()
+    {
+        $this->settingsModel = new SettingsModel();
+    }
     public function index()
     {
         $result = $this->requireLogin();
@@ -81,6 +88,46 @@ class UserAccess extends BaseController
 
         if ($email === '' || $password === '' || ! $roleId) {
             $this->session->setFlashdata('error', 'Email, password, and role are required.');
+            return redirect()->back()->withInput();
+        }
+
+        // Validate password against security settings
+        $securitySettings = $this->settingsModel->getSettingsByGroup('security');
+        $minLength = (int)($securitySettings['min_password_length'] ?? 8);
+        $requireUppercase = ($securitySettings['require_uppercase'] ?? '1') === '1';
+        $requireLowercase = ($securitySettings['require_lowercase'] ?? '1') === '1';
+        $requireNumbers = ($securitySettings['require_numbers'] ?? '1') === '1';
+        $requireSymbols = ($securitySettings['require_symbols'] ?? '0') === '1';
+
+        $passwordErrors = [];
+
+        // Check minimum length
+        if (strlen($password) < $minLength) {
+            $passwordErrors[] = "Password must be at least {$minLength} characters long.";
+        }
+
+        // Check uppercase requirement
+        if ($requireUppercase && !preg_match('/[A-Z]/', $password)) {
+            $passwordErrors[] = "Password must contain at least one uppercase letter.";
+        }
+
+        // Check lowercase requirement
+        if ($requireLowercase && !preg_match('/[a-z]/', $password)) {
+            $passwordErrors[] = "Password must contain at least one lowercase letter.";
+        }
+
+        // Check numbers requirement
+        if ($requireNumbers && !preg_match('/[0-9]/', $password)) {
+            $passwordErrors[] = "Password must contain at least one number.";
+        }
+
+        // Check symbols requirement
+        if ($requireSymbols && !preg_match('/[^A-Za-z0-9]/', $password)) {
+            $passwordErrors[] = "Password must contain at least one special character.";
+        }
+
+        if (!empty($passwordErrors)) {
+            $this->session->setFlashdata('error', implode(' ', $passwordErrors));
             return redirect()->back()->withInput();
         }
 
@@ -355,14 +402,49 @@ class UserAccess extends BaseController
         // Update password only if provided (trim to avoid accidental spaces)
         $password = trim($password);
         if ($password !== '') {
-            // Basic length check to avoid empty/too short passwords
-            if (strlen($password) < 4) {
+            // Validate password against security settings
+            $securitySettings = $this->settingsModel->getSettingsByGroup('security');
+            $minLength = (int)($securitySettings['min_password_length'] ?? 8);
+            $requireUppercase = ($securitySettings['require_uppercase'] ?? '1') === '1';
+            $requireLowercase = ($securitySettings['require_lowercase'] ?? '1') === '1';
+            $requireNumbers = ($securitySettings['require_numbers'] ?? '1') === '1';
+            $requireSymbols = ($securitySettings['require_symbols'] ?? '0') === '1';
+
+            $passwordErrors = [];
+
+            // Check minimum length
+            if (strlen($password) < $minLength) {
+                $passwordErrors[] = "Password must be at least {$minLength} characters long.";
+            }
+
+            // Check uppercase requirement
+            if ($requireUppercase && !preg_match('/[A-Z]/', $password)) {
+                $passwordErrors[] = "Password must contain at least one uppercase letter.";
+            }
+
+            // Check lowercase requirement
+            if ($requireLowercase && !preg_match('/[a-z]/', $password)) {
+                $passwordErrors[] = "Password must contain at least one lowercase letter.";
+            }
+
+            // Check numbers requirement
+            if ($requireNumbers && !preg_match('/[0-9]/', $password)) {
+                $passwordErrors[] = "Password must contain at least one number.";
+            }
+
+            // Check symbols requirement
+            if ($requireSymbols && !preg_match('/[^A-Za-z0-9]/', $password)) {
+                $passwordErrors[] = "Password must contain at least one special character.";
+            }
+
+            if (!empty($passwordErrors)) {
                 if ($isApiRequest) {
-                    return $this->response->setJSON(['success' => false, 'error' => 'Password must be at least 4 characters long'])->setStatusCode(400);
+                    return $this->response->setJSON(['success' => false, 'error' => implode(' ', $passwordErrors)])->setStatusCode(400);
                 }
-                $this->session->setFlashdata('error', 'Password must be at least 4 characters long.');
+                $this->session->setFlashdata('error', implode(' ', $passwordErrors));
                 return redirect()->back()->withInput();
             }
+
             $userData['password'] = password_hash($password, PASSWORD_DEFAULT);
         }
 

@@ -4411,3 +4411,869 @@ ERROR - 2025-12-15 18:42:59 --> Request URI: /WebSys_HMS_G3/public/admin/user-ac
 ERROR - 2025-12-15 18:42:59 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","first_name":"jayvee ","middle_name":"jay ","last_name":"sucal","address":"alabel","username":"jayve","email":"yes@gmail.com","password":"123123","confirm_password":"123123","role_id":"8","status":"active","license_number":"","specialization":""}
 ERROR - 2025-12-15 18:42:59 --> User account created successfully with ID: 17
 DEBUG - 2025-12-15 18:42:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:14:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:14:46 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:14:46 --> Request method: GET
+ERROR - 2025-12-15 19:14:46 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:14:46 --> Is logged in: NO
+DEBUG - 2025-12-15 19:14:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:14:53 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:14:53 --> Request method: POST
+ERROR - 2025-12-15 19:14:53 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:14:53 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 19:14:53 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 19:14:53 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:14:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:14:53 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:14:53 --> Request method: GET
+ERROR - 2025-12-15 19:14:53 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:14:53 --> Is logged in: NO
+DEBUG - 2025-12-15 19:15:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:15:14 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:15:14 --> Request method: POST
+ERROR - 2025-12-15 19:15:14 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:15:14 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"admin"}
+ERROR - 2025-12-15 19:15:14 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=admin
+WARNING - 2025-12-15 19:15:14 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:15:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:15:14 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:15:14 --> Request method: GET
+ERROR - 2025-12-15 19:15:14 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:15:14 --> Is logged in: NO
+DEBUG - 2025-12-15 19:15:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:15:31 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:15:31 --> Request method: POST
+ERROR - 2025-12-15 19:15:31 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:15:31 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"doctor1@example.com","password":"Doctor123!"}
+ERROR - 2025-12-15 19:15:31 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=doctor1%40example.com&password=Doctor123%21
+INFO - 2025-12-15 19:15:32 --> User logged in successfully: doctor1@example.com (Role: doctor) - Redirecting to: doctor/dashboard
+DEBUG - 2025-12-15 19:15:32 --> Session data set: {"user_id":"7","username":"dr.smith","email":"doctor1@example.com","first_name":"John","last_name":"Smith","role":"doctor","role_id":"3","isLoggedIn":true}
+DEBUG - 2025-12-15 19:15:32 --> Redirect URL: doctor/dashboard
+DEBUG - 2025-12-15 19:15:32 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 19:15:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:15:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:05 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:16:05 --> Request method: GET
+ERROR - 2025-12-15 19:16:05 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:05 --> Is logged in: NO
+DEBUG - 2025-12-15 19:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:18 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:16:18 --> Request method: POST
+ERROR - 2025-12-15 19:16:18 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:18 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"admin"}
+ERROR - 2025-12-15 19:16:18 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=admin
+WARNING - 2025-12-15 19:16:19 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:19 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:16:19 --> Request method: GET
+ERROR - 2025-12-15 19:16:19 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:19 --> Is logged in: NO
+DEBUG - 2025-12-15 19:16:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:27 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:16:27 --> Request method: POST
+ERROR - 2025-12-15 19:16:27 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:27 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 19:16:27 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 19:16:27 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:16:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:27 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:16:27 --> Request method: GET
+ERROR - 2025-12-15 19:16:27 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:27 --> Is logged in: NO
+DEBUG - 2025-12-15 19:16:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:56 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:16:56 --> Request method: POST
+ERROR - 2025-12-15 19:16:56 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:56 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123"}
+ERROR - 2025-12-15 19:16:56 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123
+WARNING - 2025-12-15 19:16:56 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:16:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:16:56 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:16:56 --> Request method: GET
+ERROR - 2025-12-15 19:16:56 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:16:56 --> Is logged in: NO
+DEBUG - 2025-12-15 19:17:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:17:11 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:17:11 --> Request method: POST
+ERROR - 2025-12-15 19:17:11 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:17:11 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123"}
+ERROR - 2025-12-15 19:17:11 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123
+WARNING - 2025-12-15 19:17:11 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:17:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:17:11 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:17:11 --> Request method: GET
+ERROR - 2025-12-15 19:17:11 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:17:11 --> Is logged in: NO
+DEBUG - 2025-12-15 19:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:18:01 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:18:01 --> Request method: POST
+ERROR - 2025-12-15 19:18:01 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:18:01 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 19:18:01 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 19:18:02 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:18:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:18:02 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:18:02 --> Request method: GET
+ERROR - 2025-12-15 19:18:02 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:18:02 --> Is logged in: NO
+DEBUG - 2025-12-15 19:18:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:18:50 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:18:50 --> Request method: POST
+ERROR - 2025-12-15 19:18:50 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:18:50 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"doctor1@example.com","password":"Doctor123"}
+ERROR - 2025-12-15 19:18:50 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=doctor1%40example.com&password=Doctor123
+WARNING - 2025-12-15 19:18:50 --> Login failed: Invalid password for - doctor1@example.com
+DEBUG - 2025-12-15 19:18:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:18:51 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:18:51 --> Request method: GET
+ERROR - 2025-12-15 19:18:51 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:18:51 --> Is logged in: NO
+DEBUG - 2025-12-15 19:19:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:19:14 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:19:14 --> Request method: POST
+ERROR - 2025-12-15 19:19:14 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:19:14 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"admin"}
+ERROR - 2025-12-15 19:19:14 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=admin
+WARNING - 2025-12-15 19:19:14 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:19:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:19:14 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:19:14 --> Request method: GET
+ERROR - 2025-12-15 19:19:14 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:19:14 --> Is logged in: NO
+DEBUG - 2025-12-15 19:19:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:19:21 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:19:21 --> Request method: POST
+ERROR - 2025-12-15 19:19:21 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:19:21 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"admin123"}
+ERROR - 2025-12-15 19:19:21 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=admin123
+WARNING - 2025-12-15 19:19:21 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:19:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:19:21 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:19:21 --> Request method: GET
+ERROR - 2025-12-15 19:19:21 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:19:21 --> Is logged in: NO
+DEBUG - 2025-12-15 19:20:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:20:26 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:20:26 --> Request method: POST
+ERROR - 2025-12-15 19:20:26 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:20:26 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123"}
+ERROR - 2025-12-15 19:20:26 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123
+WARNING - 2025-12-15 19:20:26 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:20:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:20:26 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:20:26 --> Request method: GET
+ERROR - 2025-12-15 19:20:26 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:20:26 --> Is logged in: NO
+DEBUG - 2025-12-15 19:20:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:20:49 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:20:49 --> Request method: POST
+ERROR - 2025-12-15 19:20:49 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:20:49 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"admin"}
+ERROR - 2025-12-15 19:20:49 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=admin
+WARNING - 2025-12-15 19:20:49 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:20:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:20:49 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:20:49 --> Request method: GET
+ERROR - 2025-12-15 19:20:49 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:20:49 --> Is logged in: NO
+DEBUG - 2025-12-15 19:20:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:20:53 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:20:53 --> Request method: POST
+ERROR - 2025-12-15 19:20:53 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:20:53 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"admin"}
+ERROR - 2025-12-15 19:20:53 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=admin
+WARNING - 2025-12-15 19:20:53 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:20:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:20:53 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:20:53 --> Request method: GET
+ERROR - 2025-12-15 19:20:53 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:20:53 --> Is logged in: NO
+DEBUG - 2025-12-15 19:21:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:21:05 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:21:05 --> Request method: POST
+ERROR - 2025-12-15 19:21:05 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:21:05 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123"}
+ERROR - 2025-12-15 19:21:05 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123
+WARNING - 2025-12-15 19:21:05 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:21:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:21:05 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:21:05 --> Request method: GET
+ERROR - 2025-12-15 19:21:05 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:21:05 --> Is logged in: NO
+DEBUG - 2025-12-15 19:21:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:21:48 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:21:48 --> Request method: POST
+ERROR - 2025-12-15 19:21:48 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:21:48 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"lab1@example.com","password":"lab_staff"}
+ERROR - 2025-12-15 19:21:48 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=lab1%40example.com&password=lab_staff
+WARNING - 2025-12-15 19:21:48 --> Login failed: Invalid password for - lab1@example.com
+DEBUG - 2025-12-15 19:21:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:21:48 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:21:48 --> Request method: GET
+ERROR - 2025-12-15 19:21:48 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:21:48 --> Is logged in: NO
+DEBUG - 2025-12-15 19:22:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:22:07 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:22:07 --> Request method: POST
+ERROR - 2025-12-15 19:22:07 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:22:07 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"lab1@example.com","password":"Lab123"}
+ERROR - 2025-12-15 19:22:07 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=lab1%40example.com&password=Lab123
+WARNING - 2025-12-15 19:22:07 --> Login failed: Invalid password for - lab1@example.com
+DEBUG - 2025-12-15 19:22:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:22:07 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:22:07 --> Request method: GET
+ERROR - 2025-12-15 19:22:07 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:22:07 --> Is logged in: NO
+DEBUG - 2025-12-15 19:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:22:18 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:22:18 --> Request method: GET
+ERROR - 2025-12-15 19:22:18 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:22:18 --> Is logged in: NO
+DEBUG - 2025-12-15 19:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:22:55 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:22:55 --> Request method: POST
+ERROR - 2025-12-15 19:22:55 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:22:55 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"lab1@example.com","password":"Lab123"}
+ERROR - 2025-12-15 19:22:55 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=lab1%40example.com&password=Lab123
+WARNING - 2025-12-15 19:22:55 --> Login failed: Invalid password for - lab1@example.com
+DEBUG - 2025-12-15 19:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:22:55 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:22:55 --> Request method: GET
+ERROR - 2025-12-15 19:22:55 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:22:55 --> Is logged in: NO
+DEBUG - 2025-12-15 19:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:23:09 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:23:09 --> Request method: POST
+ERROR - 2025-12-15 19:23:09 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:23:09 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!","remember":"1"}
+ERROR - 2025-12-15 19:23:09 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21&remember=1
+WARNING - 2025-12-15 19:23:09 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:23:09 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:23:09 --> Request method: GET
+ERROR - 2025-12-15 19:23:09 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:23:09 --> Is logged in: NO
+DEBUG - 2025-12-15 19:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:23:15 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:23:15 --> Request method: POST
+ERROR - 2025-12-15 19:23:15 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:23:15 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"doctor1@example.com","password":"Doctor123!"}
+ERROR - 2025-12-15 19:23:15 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=doctor1%40example.com&password=Doctor123%21
+INFO - 2025-12-15 19:23:15 --> User logged in successfully: doctor1@example.com (Role: doctor) - Redirecting to: doctor/dashboard
+DEBUG - 2025-12-15 19:23:15 --> Session data set: {"user_id":"7","username":"dr.smith","email":"doctor1@example.com","first_name":"John","last_name":"Smith","role":"doctor","role_id":"3","isLoggedIn":true}
+DEBUG - 2025-12-15 19:23:15 --> Redirect URL: doctor/dashboard
+DEBUG - 2025-12-15 19:23:15 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 19:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:23:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:24:18 --> === SCHEDULE STORE METHOD CALLED ===
+ERROR - 2025-12-15 19:24:18 --> Request method: POST
+ERROR - 2025-12-15 19:24:18 --> Request URI: /WebSys_HMS_G3/public/doctor/schedule
+ERROR - 2025-12-15 19:24:18 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","shift_name":"morning ","start_time":"14:06","end_time":"03:54","valid_from":"2025-12-12","valid_to":"2026-12-14","days":["monday","wednesday","friday","sunday"]}
+ERROR - 2025-12-15 19:24:18 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&shift_name=morning+&start_time=14%3A06&end_time=03%3A54&valid_from=2025-12-12&valid_to=2026-12-14&days%5B%5D=monday&days%5B%5D=wednesday&days%5B%5D=friday&days%5B%5D=sunday
+ERROR - 2025-12-15 19:24:18 --> Doctor ID: 1
+ERROR - 2025-12-15 19:24:18 --> Form data - shift_name: morning , start_time: 14:06, end_time: 03:54
+ERROR - 2025-12-15 19:24:18 --> Days received (raw): ["monday","wednesday","friday","sunday"]
+ERROR - 2025-12-15 19:24:18 --> Days count: 4
+ERROR - 2025-12-15 19:24:18 --> Days after filtering: ["monday","wednesday","friday","sunday"]
+ERROR - 2025-12-15 19:24:18 --> Days count after filtering: 4
+ERROR - 2025-12-15 19:24:18 --> Inserting schedule data: {"doctor_id":"1","shift_name":"morning ","start_time":"14:06","end_time":"03:54","valid_from":"2025-12-12","valid_to":"2026-12-12","created_by":"doctor"}
+ERROR - 2025-12-15 19:24:18 --> Schedule ID created: 5
+ERROR - 2025-12-15 19:24:18 --> Day rows to insert: [{"schedule_id":5,"day_of_week":"monday"},{"schedule_id":5,"day_of_week":"wednesday"},{"schedule_id":5,"day_of_week":"friday"},{"schedule_id":5,"day_of_week":"sunday"}]
+ERROR - 2025-12-15 19:24:18 --> Schedule saved successfully
+DEBUG - 2025-12-15 19:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:24:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:24:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:25:01 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:25:01 --> Request method: GET
+ERROR - 2025-12-15 19:25:01 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:25:01 --> Is logged in: NO
+DEBUG - 2025-12-15 19:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:25:11 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:25:11 --> Request method: POST
+ERROR - 2025-12-15 19:25:11 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:25:11 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 19:25:11 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 19:25:11 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:25:11 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:25:11 --> Request method: GET
+ERROR - 2025-12-15 19:25:11 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:25:11 --> Is logged in: NO
+DEBUG - 2025-12-15 19:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:26:07 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:26:07 --> Request method: POST
+ERROR - 2025-12-15 19:26:07 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:26:07 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"passwords"}
+ERROR - 2025-12-15 19:26:07 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=passwords
+WARNING - 2025-12-15 19:26:07 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 19:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:26:07 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:26:07 --> Request method: GET
+ERROR - 2025-12-15 19:26:07 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:26:07 --> Is logged in: NO
+DEBUG - 2025-12-15 19:26:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:26:19 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:26:19 --> Request method: POST
+ERROR - 2025-12-15 19:26:19 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:26:19 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"123123"}
+ERROR - 2025-12-15 19:26:19 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=123123
+INFO - 2025-12-15 19:26:19 --> User logged in successfully: admin@example.com (Role: admin) - Redirecting to: admin/dashboard
+DEBUG - 2025-12-15 19:26:19 --> Session data set: {"user_id":"6","username":"admin","email":"admin@example.com","first_name":"System","last_name":"Administrator","role":"admin","role_id":"1","isLoggedIn":true}
+DEBUG - 2025-12-15 19:26:19 --> Redirect URL: admin/dashboard
+DEBUG - 2025-12-15 19:26:19 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 19:26:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:26:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:27:14 --> === ADMIN SCHEDULING STORE METHOD CALLED ===
+ERROR - 2025-12-15 19:27:14 --> Request method: POST
+ERROR - 2025-12-15 19:27:14 --> Request URI: /WebSys_HMS_G3/public/admin/scheduling
+ERROR - 2025-12-15 19:27:14 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","doctor_id":"4","shift_name":"Afternoon","start_time":"05:45","end_time":"15:06","valid_from":"2025-12-17","valid_to":"2026-12-15","days":["monday","wednesday","saturday"]}
+ERROR - 2025-12-15 19:27:14 --> Form data - doctor_id: 4, shift_name: Afternoon, days count: 3
+ERROR - 2025-12-15 19:27:14 --> Admin schedule saved successfully - Schedule ID: 6
+DEBUG - 2025-12-15 19:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:27:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:27:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:27:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 19:27:57 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 19:27:57 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 19:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:33:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 19:33:42 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 19:33:42 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 19:33:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:33:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:34:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:51:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:51:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 19:51:17 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 19:51:17 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 19:51:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:53:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:53:08 --> === USER ACCESS STORE METHOD CALLED ===
+ERROR - 2025-12-15 19:53:08 --> Request method: POST
+ERROR - 2025-12-15 19:53:08 --> Request URI: /WebSys_HMS_G3/public/admin/user-access
+ERROR - 2025-12-15 19:53:08 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","first_name":"Erin","middle_name":"Ella","last_name":"Buhisan","address":"Kiamba","username":"Doc Ren","email":"pogi@gmail.com","password":"erin123","confirm_password":"erin123","role_id":"3","status":"active","license_number":"DR-354204820","specialization":"Emergency Medicine"}
+ERROR - 2025-12-15 19:53:08 --> User account created successfully with ID: 18
+DEBUG - 2025-12-15 19:53:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:53:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:53:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:53:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 19:53:32 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 19:53:32 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 19:53:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:55:12 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:55:12 --> Request method: GET
+ERROR - 2025-12-15 19:55:12 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:55:12 --> Is logged in: NO
+DEBUG - 2025-12-15 19:55:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:55:17 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:55:17 --> Request method: POST
+ERROR - 2025-12-15 19:55:17 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:55:17 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"doctor1@example.com","password":"Doctor123!"}
+ERROR - 2025-12-15 19:55:17 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=doctor1%40example.com&password=Doctor123%21
+INFO - 2025-12-15 19:55:17 --> User logged in successfully: doctor1@example.com (Role: doctor) - Redirecting to: doctor/dashboard
+DEBUG - 2025-12-15 19:55:17 --> Session data set: {"user_id":"7","username":"dr.smith","email":"doctor1@example.com","first_name":"John","last_name":"Smith","role":"doctor","role_id":"3","isLoggedIn":true}
+DEBUG - 2025-12-15 19:55:17 --> Redirect URL: doctor/dashboard
+DEBUG - 2025-12-15 19:55:17 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 19:55:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:55:56 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:55:56 --> Request method: GET
+ERROR - 2025-12-15 19:55:56 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:55:56 --> Is logged in: NO
+DEBUG - 2025-12-15 19:56:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:56:04 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:56:04 --> Request method: POST
+ERROR - 2025-12-15 19:56:04 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:56:04 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"reception1@example.com","password":"123123"}
+ERROR - 2025-12-15 19:56:04 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=reception1%40example.com&password=123123
+INFO - 2025-12-15 19:56:04 --> User logged in successfully: reception1@example.com (Role: receptionist) - Redirecting to: receptionist/dashboard
+DEBUG - 2025-12-15 19:56:04 --> Session data set: {"user_id":"9","username":"reception.maria","email":"reception1@example.com","first_name":"erin","last_name":"buhisan","role":"receptionist","role_id":"6","isLoggedIn":true}
+DEBUG - 2025-12-15 19:56:04 --> Redirect URL: receptionist/dashboard
+DEBUG - 2025-12-15 19:56:04 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 19:56:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:56:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:56:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:58:04 --> === PATIENT REGISTRATION STORE METHOD CALLED ===
+ERROR - 2025-12-15 19:58:04 --> Request method: POST
+ERROR - 2025-12-15 19:58:04 --> Request URI: /WebSys_HMS_G3/public/patients/register
+ERROR - 2025-12-15 19:58:04 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","visit_type":"inpatient","first_name":"Erin","middle_name":"Ren","last_name":"Ella","date_of_birth":"2025-12-02","gender":"female","civil_status":"single","place_of_birth":"Davao City","blood_type":"A+","region":"Region XII","province":"South Cotabato","city_municipality":"General Santos City","barangay":"Barangay 2","mobile_number":"0922312312","email":"","emergency_contact_person":"Eren Yeager","emergency_relationship":"cousin","emergency_contact_number":"0922312312","blood_pressure":"120","heart_rate":"2","temperature":"0.3","height_cm":"0.3","weight_kg":"0.3","bmi":"33333.3","insurance_provider":"Intellicare","insurance_contact_number":"09212930129","policy_number":"INT-28668718-900","medical_notes":"fhyuytf","outpatient_doctor_id":"","admission_date":"2025-12-16","admission_time":"03:56","inpatient_doctor_id":"","room_type":"ICU","room_number":"402","bed_number":""}
+ERROR - 2025-12-15 19:58:04 --> Visit type: inpatient
+ERROR - 2025-12-15 19:58:04 --> Patient record saved successfully - Patient ID: 5
+DEBUG - 2025-12-15 19:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:30 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 19:58:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:48 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 19:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:58:56 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 19:58:56 --> Request method: GET
+ERROR - 2025-12-15 19:58:56 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:58:56 --> Is logged in: NO
+DEBUG - 2025-12-15 19:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 19:58:58 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 19:58:58 --> Request method: POST
+ERROR - 2025-12-15 19:58:58 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 19:58:58 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"doctor1@example.com","password":"Doctor123!"}
+ERROR - 2025-12-15 19:58:58 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=doctor1%40example.com&password=Doctor123%21
+INFO - 2025-12-15 19:58:58 --> User logged in successfully: doctor1@example.com (Role: doctor) - Redirecting to: doctor/dashboard
+DEBUG - 2025-12-15 19:58:58 --> Session data set: {"user_id":"7","username":"dr.smith","email":"doctor1@example.com","first_name":"John","last_name":"Smith","role":"doctor","role_id":"3","isLoggedIn":true}
+DEBUG - 2025-12-15 19:58:58 --> Redirect URL: doctor/dashboard
+DEBUG - 2025-12-15 19:58:58 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 19:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 19:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:00:08 --> === SCHEDULE STORE METHOD CALLED ===
+ERROR - 2025-12-15 20:00:08 --> Request method: POST
+ERROR - 2025-12-15 20:00:08 --> Request URI: /WebSys_HMS_G3/public/doctor/schedule
+ERROR - 2025-12-15 20:00:08 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","shift_name":"morning ","start_time":"04:44","end_time":"15:43","valid_from":"2025-12-23","valid_to":"2025-12-24","days":["monday","wednesday","sunday"]}
+ERROR - 2025-12-15 20:00:08 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&shift_name=morning+&start_time=04%3A44&end_time=15%3A43&valid_from=2025-12-23&valid_to=2025-12-24&days%5B%5D=monday&days%5B%5D=wednesday&days%5B%5D=sunday
+ERROR - 2025-12-15 20:00:08 --> Doctor ID: 1
+ERROR - 2025-12-15 20:00:08 --> Form data - shift_name: morning , start_time: 04:44, end_time: 15:43
+ERROR - 2025-12-15 20:00:08 --> Days received (raw): ["monday","wednesday","sunday"]
+ERROR - 2025-12-15 20:00:08 --> Days count: 3
+ERROR - 2025-12-15 20:00:08 --> Days after filtering: ["monday","wednesday","sunday"]
+ERROR - 2025-12-15 20:00:08 --> Days count after filtering: 3
+ERROR - 2025-12-15 20:00:08 --> Inserting schedule data: {"doctor_id":"1","shift_name":"morning ","start_time":"04:44","end_time":"15:43","valid_from":"2025-12-23","valid_to":"2025-12-24","created_by":"doctor"}
+ERROR - 2025-12-15 20:00:08 --> Schedule ID created: 7
+ERROR - 2025-12-15 20:00:08 --> Day rows to insert: [{"schedule_id":7,"day_of_week":"monday"},{"schedule_id":7,"day_of_week":"wednesday"},{"schedule_id":7,"day_of_week":"sunday"}]
+ERROR - 2025-12-15 20:00:08 --> Schedule saved successfully
+DEBUG - 2025-12-15 20:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:00:35 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 20:00:35 --> Request method: GET
+ERROR - 2025-12-15 20:00:35 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:00:35 --> Is logged in: NO
+DEBUG - 2025-12-15 20:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:00:39 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 20:00:39 --> Request method: POST
+ERROR - 2025-12-15 20:00:39 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:00:39 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"reception1@example.com","password":"123123"}
+ERROR - 2025-12-15 20:00:39 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=reception1%40example.com&password=123123
+INFO - 2025-12-15 20:00:39 --> User logged in successfully: reception1@example.com (Role: receptionist) - Redirecting to: receptionist/dashboard
+DEBUG - 2025-12-15 20:00:39 --> Session data set: {"user_id":"9","username":"reception.maria","email":"reception1@example.com","first_name":"erin","last_name":"buhisan","role":"receptionist","role_id":"6","isLoggedIn":true}
+DEBUG - 2025-12-15 20:00:39 --> Redirect URL: receptionist/dashboard
+DEBUG - 2025-12-15 20:00:39 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 20:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:42 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 20:00:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:01:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:01:06 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 20:01:06 --> Request method: GET
+ERROR - 2025-12-15 20:01:06 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:01:06 --> Is logged in: NO
+DEBUG - 2025-12-15 20:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:01:17 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 20:01:17 --> Request method: POST
+ERROR - 2025-12-15 20:01:17 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:01:17 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 20:01:17 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 20:01:17 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 20:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:01:17 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 20:01:17 --> Request method: GET
+ERROR - 2025-12-15 20:01:17 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:01:17 --> Is logged in: NO
+DEBUG - 2025-12-15 20:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:01:23 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 20:01:23 --> Request method: POST
+ERROR - 2025-12-15 20:01:23 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:01:23 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 20:01:23 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 20:01:23 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 20:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:01:23 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 20:01:23 --> Request method: GET
+ERROR - 2025-12-15 20:01:23 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:01:23 --> Is logged in: NO
+DEBUG - 2025-12-15 20:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:01:28 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 20:01:28 --> Request method: POST
+ERROR - 2025-12-15 20:01:28 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:01:28 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"admin@example.com","password":"123123"}
+ERROR - 2025-12-15 20:01:28 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=admin%40example.com&password=123123
+INFO - 2025-12-15 20:01:28 --> User logged in successfully: admin@example.com (Role: admin) - Redirecting to: admin/dashboard
+DEBUG - 2025-12-15 20:01:28 --> Session data set: {"user_id":"6","username":"admin","email":"admin@example.com","first_name":"System","last_name":"Administrator","role":"admin","role_id":"1","isLoggedIn":true}
+DEBUG - 2025-12-15 20:01:28 --> Redirect URL: admin/dashboard
+DEBUG - 2025-12-15 20:01:28 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 20:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:01:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:02:07 --> === ADMIN SCHEDULING STORE METHOD CALLED ===
+ERROR - 2025-12-15 20:02:07 --> Request method: POST
+ERROR - 2025-12-15 20:02:07 --> Request URI: /WebSys_HMS_G3/public/admin/scheduling
+ERROR - 2025-12-15 20:02:07 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","doctor_id":"5","shift_name":"Morning","start_time":"00:15","end_time":"15:56","valid_from":"2025-12-23","valid_to":"2026-12-24","days":["monday","wednesday","friday","sunday"]}
+ERROR - 2025-12-15 20:02:07 --> Form data - doctor_id: 5, shift_name: Morning, days count: 4
+ERROR - 2025-12-15 20:02:07 --> Admin schedule saved successfully - Schedule ID: 8
+DEBUG - 2025-12-15 20:02:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 20:02:26 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 20:02:26 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 20:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 20:02:32 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 20:02:32 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 20:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-15 20:02:34 --> Pharmacy index - Has success flashdata: NO
+INFO - 2025-12-15 20:02:34 --> Pharmacy index - Has error flashdata: NO
+DEBUG - 2025-12-15 20:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:02:45 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 20:02:45 --> Request method: GET
+ERROR - 2025-12-15 20:02:45 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:02:45 --> Is logged in: NO
+DEBUG - 2025-12-15 20:02:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:02:47 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 20:02:47 --> Request method: POST
+ERROR - 2025-12-15 20:02:47 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:02:47 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"it1@example.com","password":"It123!"}
+ERROR - 2025-12-15 20:02:47 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=it1%40example.com&password=It123%21
+INFO - 2025-12-15 20:02:48 --> User logged in successfully: it1@example.com (Role: it_staff) - Redirecting to: it/dashboard
+DEBUG - 2025-12-15 20:02:48 --> Session data set: {"user_id":"13","username":"it.michael","email":"it1@example.com","first_name":"Michael","last_name":"Tan","role":"it_staff","role_id":"2","isLoggedIn":true}
+DEBUG - 2025-12-15 20:02:48 --> Redirect URL: it/dashboard
+DEBUG - 2025-12-15 20:02:48 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 20:02:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:03:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:03:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:04:15 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 20:04:15 --> Request method: GET
+ERROR - 2025-12-15 20:04:15 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:04:15 --> Is logged in: NO
+DEBUG - 2025-12-15 20:04:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 20:04:20 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 20:04:20 --> Request method: POST
+ERROR - 2025-12-15 20:04:20 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 20:04:20 --> POST data: {"csrf_test_name":"96bcfea98f783f095a7fe960e7cab662","email":"account@gmail.com","password":"123123"}
+ERROR - 2025-12-15 20:04:20 --> Raw input: csrf_test_name=96bcfea98f783f095a7fe960e7cab662&email=account%40gmail.com&password=123123
+INFO - 2025-12-15 20:04:20 --> User logged in successfully: account@gmail.com (Role: accountant) - Redirecting to: accounts/dashboard
+DEBUG - 2025-12-15 20:04:20 --> Session data set: {"user_id":"12","username":"acct.peter","email":"account@gmail.com","first_name":"Peter","last_name":"Lim","role":"accountant","role_id":"8","isLoggedIn":true}
+DEBUG - 2025-12-15 20:04:20 --> Redirect URL: accounts/dashboard
+DEBUG - 2025-12-15 20:04:20 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 20:04:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:04:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:05:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:05:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:05:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:05:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 20:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 22:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 22:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 22:43:51 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 22:43:51 --> Request method: GET
+ERROR - 2025-12-15 22:43:51 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 22:43:51 --> Is logged in: NO
+DEBUG - 2025-12-15 23:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:24:54 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:24:54 --> Request method: GET
+ERROR - 2025-12-15 23:24:54 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:24:54 --> Is logged in: NO
+DEBUG - 2025-12-15 23:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:25:04 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:25:04 --> Request method: POST
+ERROR - 2025-12-15 23:25:04 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:25:04 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 23:25:04 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 23:25:04 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 23:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:25:04 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:25:04 --> Request method: GET
+ERROR - 2025-12-15 23:25:04 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:25:04 --> Is logged in: NO
+DEBUG - 2025-12-15 23:25:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:25:19 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:25:19 --> Request method: POST
+ERROR - 2025-12-15 23:25:19 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:25:19 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"doctor1@example.com","password":"Doctor123!"}
+ERROR - 2025-12-15 23:25:19 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=doctor1%40example.com&password=Doctor123%21
+INFO - 2025-12-15 23:25:19 --> User logged in successfully: doctor1@example.com (Role: doctor) - Redirecting to: doctor/dashboard
+DEBUG - 2025-12-15 23:25:19 --> Session data set: {"user_id":"7","username":"dr.smith","email":"doctor1@example.com","first_name":"John","last_name":"Smith","role":"doctor","role_id":"3","isLoggedIn":true}
+DEBUG - 2025-12-15 23:25:19 --> Redirect URL: doctor/dashboard
+DEBUG - 2025-12-15 23:25:19 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 23:25:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:25:39 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:25:39 --> Request method: GET
+ERROR - 2025-12-15 23:25:39 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:25:39 --> Is logged in: NO
+DEBUG - 2025-12-15 23:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:00 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:26:00 --> Request method: POST
+ERROR - 2025-12-15 23:26:00 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:00 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"admin@gmail.com","password":"123123"}
+ERROR - 2025-12-15 23:26:00 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=admin%40gmail.com&password=123123
+WARNING - 2025-12-15 23:26:00 --> Login failed: User not found - admin@gmail.com
+DEBUG - 2025-12-15 23:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:00 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:26:00 --> Request method: GET
+ERROR - 2025-12-15 23:26:00 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:00 --> Is logged in: NO
+DEBUG - 2025-12-15 23:26:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:03 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:26:03 --> Request method: GET
+ERROR - 2025-12-15 23:26:03 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:03 --> Is logged in: NO
+DEBUG - 2025-12-15 23:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:07 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:26:07 --> Request method: POST
+ERROR - 2025-12-15 23:26:07 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:07 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 23:26:07 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 23:26:07 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 23:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:07 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:26:07 --> Request method: GET
+ERROR - 2025-12-15 23:26:07 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:07 --> Is logged in: NO
+DEBUG - 2025-12-15 23:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:10 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:26:10 --> Request method: GET
+ERROR - 2025-12-15 23:26:10 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:10 --> Is logged in: NO
+DEBUG - 2025-12-15 23:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:26:13 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:26:13 --> Request method: POST
+ERROR - 2025-12-15 23:26:13 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:26:13 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"it1@example.com","password":"It123!"}
+ERROR - 2025-12-15 23:26:13 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=it1%40example.com&password=It123%21
+INFO - 2025-12-15 23:26:14 --> User logged in successfully: it1@example.com (Role: it_staff) - Redirecting to: it/dashboard
+DEBUG - 2025-12-15 23:26:14 --> Session data set: {"user_id":"13","username":"it.michael","email":"it1@example.com","first_name":"Michael","last_name":"Tan","role":"it_staff","role_id":"2","isLoggedIn":true}
+DEBUG - 2025-12-15 23:26:14 --> Redirect URL: it/dashboard
+DEBUG - 2025-12-15 23:26:14 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 23:26:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:26:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:26:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:26:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:27:19 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:27:19 --> Request method: GET
+ERROR - 2025-12-15 23:27:19 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:27:19 --> Is logged in: NO
+DEBUG - 2025-12-15 23:27:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:27:29 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:27:29 --> Request method: POST
+ERROR - 2025-12-15 23:27:29 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:27:29 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"account@gmail.com","password":"123123"}
+ERROR - 2025-12-15 23:27:29 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=account%40gmail.com&password=123123
+INFO - 2025-12-15 23:27:30 --> User logged in successfully: account@gmail.com (Role: accountant) - Redirecting to: accounts/dashboard
+DEBUG - 2025-12-15 23:27:30 --> Session data set: {"user_id":"12","username":"acct.peter","email":"account@gmail.com","first_name":"Peter","last_name":"Lim","role":"accountant","role_id":"8","isLoggedIn":true}
+DEBUG - 2025-12-15 23:27:30 --> Redirect URL: accounts/dashboard
+DEBUG - 2025-12-15 23:27:30 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 23:27:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:27:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:28:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:39:32 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:39:32 --> Request method: GET
+ERROR - 2025-12-15 23:39:32 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:39:32 --> Is logged in: NO
+DEBUG - 2025-12-15 23:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:39:44 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:39:44 --> Request method: POST
+ERROR - 2025-12-15 23:39:44 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:39:44 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"admin@example.com","password":"Admin123!"}
+ERROR - 2025-12-15 23:39:44 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=admin%40example.com&password=Admin123%21
+WARNING - 2025-12-15 23:39:44 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 23:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:39:44 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:39:44 --> Request method: GET
+ERROR - 2025-12-15 23:39:44 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:39:44 --> Is logged in: NO
+DEBUG - 2025-12-15 23:40:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:40:38 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:40:38 --> Request method: POST
+ERROR - 2025-12-15 23:40:38 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:40:38 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"admin@example.com","password":"admin"}
+ERROR - 2025-12-15 23:40:38 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=admin%40example.com&password=admin
+WARNING - 2025-12-15 23:40:38 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 23:40:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:40:38 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:40:38 --> Request method: GET
+ERROR - 2025-12-15 23:40:38 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:40:38 --> Is logged in: NO
+DEBUG - 2025-12-15 23:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:40:42 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:40:42 --> Request method: POST
+ERROR - 2025-12-15 23:40:42 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:40:42 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"admin@example.com","password":"password"}
+ERROR - 2025-12-15 23:40:42 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=admin%40example.com&password=password
+WARNING - 2025-12-15 23:40:43 --> Login failed: Invalid password for - admin@example.com
+DEBUG - 2025-12-15 23:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:40:43 --> === LOGIN PAGE ACCESSED (GET) ===
+ERROR - 2025-12-15 23:40:43 --> Request method: GET
+ERROR - 2025-12-15 23:40:43 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:40:43 --> Is logged in: NO
+DEBUG - 2025-12-15 23:41:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-15 23:41:22 --> === LOGIN POST REQUEST RECEIVED ===
+ERROR - 2025-12-15 23:41:22 --> Request method: POST
+ERROR - 2025-12-15 23:41:22 --> Request URI: /WebSys_HMS_G3/public/login
+ERROR - 2025-12-15 23:41:22 --> POST data: {"csrf_test_name":"338e358fb681dd21d5af1007be48bd20","email":"reception1@example.com","password":"123123"}
+ERROR - 2025-12-15 23:41:22 --> Raw input: csrf_test_name=338e358fb681dd21d5af1007be48bd20&email=reception1%40example.com&password=123123
+INFO - 2025-12-15 23:41:22 --> User logged in successfully: reception1@example.com (Role: receptionist) - Redirecting to: receptionist/dashboard
+DEBUG - 2025-12-15 23:41:22 --> Session data set: {"user_id":"9","username":"reception.maria","email":"reception1@example.com","first_name":"erin","last_name":"buhisan","role":"receptionist","role_id":"6","isLoggedIn":true}
+DEBUG - 2025-12-15 23:41:22 --> Redirect URL: receptionist/dashboard
+DEBUG - 2025-12-15 23:41:22 --> Base URL: http://localhost/WebSys_HMS_G3/public/
+DEBUG - 2025-12-15 23:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:41:24 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:41:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:05 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:42:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:07 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:17 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:28 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:42:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:36 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:42:51 --> Doctors found: 5 - ["Erin Ella Buhisan","Erin Ella Buhisan","Jacob Sasube Cagadas","John Smith","zyf amad diga"]
+DEBUG - 2025-12-15 23:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-15 23:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -1,7 +1,18 @@
-# Remove /public from URL and redirect all requests to public folder
+# Security: Disable directory listing
+Options -Indexes
+
+# Security: Hide Apache server information
+ServerSignature Off
+
+# Security: Block directory traversal attacks
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /WebSys_HMS_G3/
+    
+    # Block directory traversal patterns (../, ..\, URL-encoded variants)
+    RewriteCond %{REQUEST_URI} (\.\./|\.\.\\|%2e%2e%2f|%2e%2e%5c|%252e%252e%252f|%252e%252e%255c) [NC,OR]
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\\|%2e%2e%2f|%2e%2e%5c|%252e%252e%252f|%252e%252e%255c) [NC]
+    RewriteRule .* - [F,L]
     
     # First: Redirect any URL containing /public/ to remove it (301 permanent redirect)
     # This handles cases where user types /public/ in the URL

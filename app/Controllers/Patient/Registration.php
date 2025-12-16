@@ -302,6 +302,12 @@ class Registration extends BaseController
 
     public function update($id)
     {
+        // If accessed via GET, redirect back to edit form instead of 404
+        $method = strtolower($this->request->getMethod());
+        if ($method === 'get') {
+            return redirect()->to(base_url('patients/edit/' . $id));
+        }
+
         $result = $this->requireLogin();
         if ($result !== true) {
             return $result;

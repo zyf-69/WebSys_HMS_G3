@@ -284,7 +284,14 @@
             <div class="sidebar-logo">HS</div>
             <div>
                 <div class="sidebar-title">HMS System</div>
-                <div class="sidebar-subtitle">St. Peter Hospital</div>
+                <div class="sidebar-subtitle">
+                    <?php
+                    // Get hospital name from settings
+                    $settingsModel = new \App\Models\SettingsModel();
+                    $hospitalName = $settingsModel->getSetting('hospital_name', 'St. Peter Hospital');
+                    echo esc($hospitalName);
+                    ?>
+                </div>
             </div>
         </div>
         <div class="sidebar-nav">
@@ -314,6 +321,7 @@
                     ['url' => '#', 'icon' => '💊', 'label' => 'Pharmacy'],
                     ['url' => '#', 'icon' => '📊', 'label' => 'Hospital Reports'],
                     ['url' => 'admin/user-access', 'icon' => '🛡', 'label' => 'User Management'],
+                    ['url' => 'admin/settings', 'icon' => '⚙️', 'label' => 'Settings'],
                 ],
                 'receptionist' => [
                     ['url' => 'receptionist/dashboard', 'icon' => '●', 'label' => 'Dashboard'],

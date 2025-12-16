@@ -113,4 +113,6 @@ $routes->get('patients/register', 'Patient\\Registration::index');
 $routes->post('patients/register', 'Patient\\Registration::store');
 $routes->get('patients/records', 'Patient\\Registration::records');
 $routes->get('patients/edit/(:num)', 'Patient\\Registration::edit/$1');
+// Allow GET on update to gracefully redirect back to edit instead of 404
+$routes->get('patients/update/(:num)', 'Patient\\Registration::update/$1');
 $routes->post('patients/update/(:num)', 'Patient\\Registration::update/$1');
